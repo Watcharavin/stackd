@@ -95,22 +95,21 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section
-        className="relative h-[600px] flex items-center justify-center bg-cover bg-center"
+        className="relative h-[600px] flex items-center justify-center bg-cover bg-center md:bg-fixed"
         style={{
           backgroundImage: 'url(/images/hero-factory.jpg)',
-          backgroundAttachment: 'fixed'
         }}
       >
         <div className="absolute inset-0 bg-navy opacity-60" aria-hidden="true"></div>
         <div className="relative z-10 text-center text-ice-white px-4">
-          <h1 className="hero-title text-5xl md:text-7xl font-bold mb-4">
-            WATTANA BROTHER
+          <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl font-bold mb-4">
+            วัฒนาบราเดอร์
           </h1>
-          <p className="hero-subtitle text-2xl md:text-3xl font-light mb-2">
-            Established Since 1984
+          <p className="hero-subtitle text-xl sm:text-2xl md:text-3xl font-light mb-2">
+            ก่อตั้งตั้งแต่ปี พ.ศ. 2527
           </p>
-          <p className="hero-text text-xl md:text-2xl text-fog-gray mb-8">
-            27 Years Experience
+          <p className="hero-text text-lg sm:text-xl md:text-2xl text-fog-gray mb-8">
+            ประสบการณ์กว่า 27 ปี
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

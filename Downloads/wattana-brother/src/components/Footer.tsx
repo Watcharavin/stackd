@@ -13,17 +13,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="animate-slide-left">
-            <h3 className="text-xl font-bold mb-4 gradient-text">WATTANA BROTHER</h3>
+            <h3 className="text-xl font-bold mb-4 gradient-text">วัฒนาบราเดอร์</h3>
             <p className="text-slate mb-2 transition-colors duration-300 hover:text-fog-gray">
-              Established Since 1984
+              ก่อตั้งตั้งแต่ปี พ.ศ. 2527
             </p>
             <p className="text-slate mb-4 transition-colors duration-300 hover:text-fog-gray">
-              Metal and stainless steel production specialist with 27 years of experience.
+              ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส ด้วยประสบการณ์กว่า 27 ปี
             </p>
             <p className="text-slate group">
-              <strong className="text-ice-white">Phone:</strong>{' '}
-              <a 
-                href="tel:+6627498115" 
+              <strong className="text-ice-white">โทรศัพท์:</strong>{' '}
+              <a
+                href="tel:+6627498115"
                 className="hover:text-accent-cyan transition-colors duration-300"
               >
                 02-749-8115-6
@@ -33,28 +33,28 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="animate-fade-in delay-200">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">ลิงก์ด่วน</h3>
             <ul className="space-y-2">
               {[
-                { name: 'About Us', href: '/about/' },
-                { name: 'Factory', href: '/factory/' },
-                { name: 'Products', href: '/products/' },
-                { name: 'Supply', href: '/supply/' },
-                { name: 'News', href: '/news/' },
-                { name: 'Contact', href: '/contact/' },
+                { name: 'เกี่ยวกับเรา', href: '/about/' },
+                { name: 'โรงงาน', href: '/factory/' },
+                { name: 'สินค้า', href: '/products/' },
+                { name: 'บริการ', href: '/supply/' },
+                { name: 'ข่าวสาร', href: '/news/' },
+                { name: 'ติดต่อเรา', href: '/contact/' },
               ].map((link) => (
                 <li key={link.href} className="footer-link-item">
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="footer-link text-slate hover:text-accent-cyan transition-all duration-300 inline-flex items-center group"
                   >
                     <span className="transform transition-transform duration-300 group-hover:translate-x-2">
                       {link.name}
                     </span>
-                    <svg 
-                      className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -67,24 +67,24 @@ export default function Footer() {
 
           {/* Services */}
           <div className="animate-slide-right delay-300">
-            <h3 className="text-lg font-semibold mb-4">Our Services</h3>
+            <h3 className="text-lg font-semibold mb-4">บริการของเรา</h3>
             <ul className="space-y-2">
               {[
-                'Metal and Stainless Steel Fabrication',
-                'Pressure Tanks Production',
-                'Chemical Mixing Tanks',
-                'Liquid Storage Tanks',
-                'Steel Cutting Services',
-                'Custom Steel Solutions',
+                'งานขึ้นรูปโลหะและสแตนเลส',
+                'ผลิตถังแรงดันอุตสาหกรรม',
+                'ถังผสมสารเคมี',
+                'ถังเก็บของเหลว',
+                'บริการตัดเหล็ก',
+                'โซลูชันเหล็กตามสั่ง',
               ].map((service) => (
-                <li 
+                <li
                   key={service}
                   className="text-slate flex items-start transition-all duration-300 hover:text-fog-gray hover:translate-x-1"
                 >
-                  <svg 
-                    className="w-4 h-4 mr-2 mt-1 text-accent-cyan flex-shrink-0" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-4 h-4 mr-2 mt-1 text-accent-cyan flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -98,12 +98,12 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-steel-blue mt-8 pt-8 text-center animate-fade-in delay-500">
-          <p className="text-slate">
+          <p className="text-slate text-sm">
             &copy; {new Date().getFullYear()}{' '}
             <span className="text-ice-white font-semibold hover:text-accent-cyan transition-colors duration-300">
-              Wattana Brother Co.,Ltd.
+              บริษัท วัฒนาบราเดอร์ จำกัด
             </span>{' '}
-            All rights reserved.
+            สงวนลิขสิทธิ์
           </p>
         </div>
       </div>
