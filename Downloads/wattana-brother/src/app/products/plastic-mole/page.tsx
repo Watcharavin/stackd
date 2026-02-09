@@ -4,11 +4,11 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'โม่พลาสติก - อุปกรณ์แปรรูปวัสดุ',
   description: 'อุปกรณ์เฉพาะทางสำหรับการแปรรูปพลาสติกและการจัดการวัสดุ โครงสร้างเหล็กที่ทนทาน',
-  alternates: { canonical: 'https://wattanabrother.com/products/plastic-mole' },
+  alternates: { canonical: 'https://www.wattanabrother.com/products/plastic-mole' },
   openGraph: {
     title: 'โม่พลาสติก | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'อุปกรณ์แปรรูปพลาสติก',
-    url: 'https://wattanabrother.com/products/plastic-mole',
+    url: 'https://www.wattanabrother.com/products/plastic-mole',
   },
 }
 

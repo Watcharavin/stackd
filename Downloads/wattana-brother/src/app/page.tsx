@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'หน้าแรก',
   description: 'บริษัท วัฒนบราเดอร์ จำกัด ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส รับผลิตถังแรงดัน ถังผสมสารเคมี งานตัดเหล็ก ตั้งแต่ปี 1984',
   alternates: {
-    canonical: 'https://wattanabrother.com',
+    canonical: 'https://www.wattanabrother.com',
   },
 }
 

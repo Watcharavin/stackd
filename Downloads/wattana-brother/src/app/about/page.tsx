@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'เกี่ยวกับเรา',
   description: 'บริษัท วัฒนบราเดอร์ จำกัด ผู้เชี่ยวชาญงานผลิตเหล็กและสแตนเลส ก่อตั้งปี พ.ศ. 2527 ประสบการณ์กว่า 27 ปี',
   alternates: {
-    canonical: 'https://wattanabrother.com/about',
+    canonical: 'https://www.wattanabrother.com/about',
   },
   openGraph: {
     title: 'เกี่ยวกับเรา | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ผู้เชี่ยวชาญงานผลิตเหล็กและสแตนเลส ตั้งแต่ปี พ.ศ. 2527',
-    url: 'https://wattanabrother.com/about',
+    url: 'https://www.wattanabrother.com/about',
   },
 }
 

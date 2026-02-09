@@ -4,11 +4,11 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'สายพานลำเลียง - ระบบขนส่งวัสดุอุตสาหกรรม',
   description: 'ระบบสายพานลำเลียงที่แข็งแรง สำหรับการขนส่งวัสดุอุตสาหกรรมและการผสานรวมสายการผลิต',
-  alternates: { canonical: 'https://wattanabrother.com/products/conveyor' },
+  alternates: { canonical: 'https://www.wattanabrother.com/products/conveyor' },
   openGraph: {
     title: 'สายพานลำเลียง | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ระบบสายพานลำเลียงอุตสาหกรรม',
-    url: 'https://wattanabrother.com/products/conveyor',
+    url: 'https://www.wattanabrother.com/products/conveyor',
   },
 }
 

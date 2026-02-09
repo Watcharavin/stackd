@@ -4,7 +4,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://wattanabrother.com'),
+  metadataBase: new URL('https://www.wattanabrother.com'),
   title: {
     default: 'บริษัท วัฒนบราเดอร์ จำกัด - ผู้เชี่ยวชาญงานโลหะและสแตนเลส ตั้งแต่ปี 1984',
     template: '%s | บริษัท วัฒนบราเดอร์ จำกัด'
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'th_TH',
-    url: 'https://wattanabrother.com',
+    url: 'https://www.wattanabrother.com',
     siteName: 'บริษัท วัฒนบราเดอร์ จำกัด',
     title: 'บริษัท วัฒนบราเดอร์ จำกัด - ผู้เชี่ยวชาญงานโลหะและสแตนเลส',
     description: 'ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลสกว่า 27 ปี รับผลิตถังแรงดัน ถังผสมสารเคมี',
@@ -65,8 +65,8 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'บริษัท วัฒนบราเดอร์ จำกัด',
               description: 'ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส',
-              url: 'https://wattanabrother.com',
-              logo: 'https://wattanabrother.com/logo.svg',
+              url: 'https://www.wattanabrother.com',
+              logo: 'https://www.wattanabrother.com/logo.svg',
               foundingDate: '1984',
               telephone: '+66-2-749-8115',
               address: {

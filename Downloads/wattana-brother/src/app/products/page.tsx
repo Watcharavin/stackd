@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'สินค้า',
   description: 'สำรวจผลิตภัณฑ์โลหะและสแตนเลสของบริษัท วัฒนบราเดอร์ จำกัด รวมถึงเครื่องกรองน้ำ เครื่องปฏิกรณ์ โม่พลาสติก และสายพานลำเลียง',
   alternates: {
-    canonical: 'https://wattanabrother.com/products',
+    canonical: 'https://www.wattanabrother.com/products',
   },
   openGraph: {
     title: 'สินค้า | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ผลิตภัณฑ์ขึ้นรูปโลหะและสแตนเลส',
-    url: 'https://wattanabrother.com/products',
+    url: 'https://www.wattanabrother.com/products',
   },
 }
 

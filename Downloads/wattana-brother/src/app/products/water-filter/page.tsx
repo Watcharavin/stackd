@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'เครื่องกรองน้ำ - ระบบกรองน้ำสแตนเลสอุตสาหกรรม',
   description: 'ระบบกรองน้ำอุตสาหกรรมคุณภาพสูง ผลิตจากสแตนเลสทนการกัดกร่อน รับผลิตตามขนาดและรูปแบบที่ต้องการ',
   alternates: {
-    canonical: 'https://wattanabrother.com/products/water-filter',
+    canonical: 'https://www.wattanabrother.com/products/water-filter',
   },
   openGraph: {
     title: 'เครื่องกรองน้ำ | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ระบบกรองน้ำสแตนเลสระดับอุตสาหกรรม',
-    url: 'https://wattanabrother.com/products/water-filter',
+    url: 'https://www.wattanabrother.com/products/water-filter',
   },
 }
 

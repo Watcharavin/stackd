@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'ติดต่อเรา',
   description: 'ติดต่อบริษัท วัฒนบราเดอร์ จำกัด สำหรับบริการขึ้นรูปโลหะและสแตนเลสตามสั่ง โทร 02-749-8115-6, 081-138-1555',
   alternates: {
-    canonical: 'https://wattanabrother.com/contact',
+    canonical: 'https://www.wattanabrother.com/contact',
   },
 }
 

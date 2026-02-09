@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'โรงงาน',
   description: 'สำรวจโรงงานที่ทันสมัยของบริษัท วัฒนบราเดอร์ จำกัด สำหรับการผลิตโลหะและสแตนเลส ถังความดัน และงานขึ้นรูปโลหะอุตสาหกรรม',
   alternates: {
-    canonical: 'https://wattanabrother.com/factory',
+    canonical: 'https://www.wattanabrother.com/factory',
   },
   openGraph: {
     title: 'โรงงาน | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'โรงงานขึ้นรูปโลหะที่ทันสมัย',
-    url: 'https://wattanabrother.com/factory',
+    url: 'https://www.wattanabrother.com/factory',
   },
 }
 

@@ -194,7 +194,7 @@ Deploy the `out/` directory to any static hosting service:
 Set `SITE_URL` for production:
 
 ```bash
-SITE_URL=https://wattanabrother.com
+SITE_URL=https://www.wattanabrother.com
 ```
 
 ## 📱 Responsive Design

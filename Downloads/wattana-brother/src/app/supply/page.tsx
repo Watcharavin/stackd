@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'บริการและความสามารถ',
   description: 'บริการขึ้นรูปโลหะและสแตนเลสตามสั่ง รวมถึงถังความดัน ถังผสมเคมี และโซลูชันเหล็กอุตสาหกรรม',
   alternates: {
-    canonical: 'https://wattanabrother.com/supply',
+    canonical: 'https://www.wattanabrother.com/supply',
   },
 }
 

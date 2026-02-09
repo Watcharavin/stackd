@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'เครื่องปฏิกรณ์ - อุปกรณ์แปรรูปเคมีอุตสาหกรรม',
   description: 'เครื่องปฏิกรณ์เคมีที่ออกแบบอย่างแม่นยำสำหรับกระบวนการอุตสาหกรรม ทนทานต่อความดันพร้อมระบบควบคุมอุณหภูมิ',
   alternates: {
-    canonical: 'https://wattanabrother.com/products/reactor',
+    canonical: 'https://www.wattanabrother.com/products/reactor',
   },
   openGraph: {
     title: 'เครื่องปฏิกรณ์ | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'เครื่องปฏิกรณ์แปรรูปเคมีอุตสาหกรรม',
-    url: 'https://wattanabrother.com/products/reactor',
+    url: 'https://www.wattanabrother.com/products/reactor',
   },
 }
 
