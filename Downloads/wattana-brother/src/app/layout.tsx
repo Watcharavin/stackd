@@ -6,31 +6,31 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   metadataBase: new URL('https://wattanabrother.com'),
   title: {
-    default: 'วัฒนาบราเดอร์ - ผู้เชี่ยวชาญงานโลหะและสแตนเลส ตั้งแต่ปี 1984',
-    template: '%s | วัฒนาบราเดอร์'
+    default: 'บริษัท วัฒนบราเดอร์ จำกัด - ผู้เชี่ยวชาญงานโลหะและสแตนเลส ตั้งแต่ปี 1984',
+    template: '%s | บริษัท วัฒนบราเดอร์ จำกัด'
   },
-  description: 'บริษัท วัฒนาบราเดอร์ จำกัด ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลสกว่า 27 ปี รับผลิตถังแรงดัน ถังผสมสารเคมี งานตัดเหล็ก และโซลูชันเหล็กอุตสาหกรรม',
+  description: 'บริษัท วัฒนบราเดอร์ จำกัด ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลสกว่า 27 ปี รับผลิตถังแรงดัน ถังผสมสารเคมี งานตัดเหล็ก และโซลูชันเหล็กอุตสาหกรรม',
   keywords: ['งานโลหะ', 'สแตนเลส', 'ถังแรงดัน', 'ถังผสมสารเคมี', 'ตัดเหล็ก', 'ขึ้นรูปโลหะ', 'โรงงานเหล็ก', 'กรุงเทพ'],
-  authors: [{ name: 'บริษัท วัฒนาบราเดอร์ จำกัด' }],
+  authors: [{ name: 'บริษัท วัฒนบราเดอร์ จำกัด' }],
   openGraph: {
     type: 'website',
     locale: 'th_TH',
     url: 'https://wattanabrother.com',
-    siteName: 'วัฒนาบราเดอร์',
-    title: 'วัฒนาบราเดอร์ - ผู้เชี่ยวชาญงานโลหะและสแตนเลส',
+    siteName: 'บริษัท วัฒนบราเดอร์ จำกัด',
+    title: 'บริษัท วัฒนบราเดอร์ จำกัด - ผู้เชี่ยวชาญงานโลหะและสแตนเลส',
     description: 'ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลสกว่า 27 ปี รับผลิตถังแรงดัน ถังผสมสารเคมี',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'โรงงานวัฒนาบราเดอร์',
+        alt: 'โรงงานบริษัท วัฒนบราเดอร์ จำกัด',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'วัฒนาบราเดอร์',
+    title: 'บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ผู้เชี่ยวชาญงานโลหะและสแตนเลส',
     images: ['/og-image.jpg'],
   },
@@ -63,7 +63,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'บริษัท วัฒนาบราเดอร์ จำกัด',
+              name: 'บริษัท วัฒนบราเดอร์ จำกัด',
               description: 'ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส',
               url: 'https://wattanabrother.com',
               logo: 'https://wattanabrother.com/logo.svg',

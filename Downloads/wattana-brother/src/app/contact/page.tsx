@@ -3,7 +3,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'ติดต่อเรา',
-  description: 'ติดต่อวัฒนาบราเดอร์ จำกัด สำหรับบริการขึ้นรูปโลหะและสแตนเลสตามสั่ง โทร 02-749-8115-6',
+  description: 'ติดต่อบริษัท วัฒนบราเดอร์ จำกัด สำหรับบริการขึ้นรูปโลหะและสแตนเลสตามสั่ง โทร 02-749-8115-6, 081-138-1555',
   alternates: {
     canonical: 'https://wattanabrother.com/contact',
   },
@@ -53,36 +53,82 @@ export default function ContactPage() {
                     </div>
                     <div className="ml-4">
                       <h3 className="text-lg font-semibold mb-1">โทรศัพท์</h3>
-                      <a 
-                        href="tel:+6627498115" 
-                        className="text-fog-gray hover:text-accent-cyan transition-colors"
-                      >
-                        02-749-8115-6
-                      </a>
+                      <div className="space-y-1">
+                        <a
+                          href="tel:+6627498115"
+                          className="block text-fog-gray hover:text-accent-cyan transition-colors"
+                        >
+                          02-749-8115-6
+                        </a>
+                        <a
+                          href="tel:+66811381555"
+                          className="block text-fog-gray hover:text-accent-cyan transition-colors"
+                        >
+                          081-138-1555
+                        </a>
+                      </div>
                     </div>
                   </div>
 
+                  {/* LINE */}
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-[#06C755] rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-6 h-6 text-ice-white"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold mb-1">LINE</h3>
+                      <a
+                        href="https://line.me/ti/p/qX-tjXru2k"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-[#06C755] hover:bg-[#05B04A] text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+                      >
+                        <span>เพิ่มเพื่อน</span>
+                      </a>
+                      <div className="mt-3">
+                        <p className="text-fog-gray text-sm mb-2">หรือสแกน QR Code</p>
+                        <div className="w-24 h-24 bg-white rounded-lg p-1">
+                          <img
+                            src="/images/line-qr.png"
+                            alt="LINE QR Code"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ที่อยู่ */}
                   <div className="flex items-start">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-steel-blue rounded-full flex items-center justify-center">
-                        <svg 
-                          className="w-6 h-6 text-ice-white" 
-                          fill="none" 
-                          stroke="currentColor" 
+                        <svg
+                          className="w-6 h-6 text-ice-white"
+                          fill="none"
+                          stroke="currentColor"
                           viewBox="0 0 24 24"
                           aria-hidden="true"
                         >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" 
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                           />
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" 
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                           />
                         </svg>
                       </div>
@@ -140,7 +186,7 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="แผนที่สถานที่ตั้งวัฒนาบราเดอร์"
+                    title="แผนที่สถานที่ตั้งบริษัท วัฒนบราเดอร์ จำกัด"
                   ></iframe>
                 </div>
                 <p className="text-slate mt-4 text-center">
@@ -157,8 +203,11 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">พร้อมเริ่มโครงการของคุณแล้วหรือยัง?</h2>
           <p className="text-xl text-fog-gray mb-8 max-w-2xl mx-auto">
-            โทรหาเราตอนนี้ที่ <a href="tel:+6627498115" className="font-bold hover:text-accent-cyan transition-colors">02-749-8115-6</a> เพื่อ
-            ปรึกษาเกี่ยวกับงานขึ้นรูปโลหะของคุณ
+            โทรหาเราตอนนี้ที่{' '}
+            <a href="tel:+6627498115" className="font-bold hover:text-accent-cyan transition-colors">02-749-8115-6</a>
+            {' '}หรือ{' '}
+            <a href="tel:+66811381555" className="font-bold hover:text-accent-cyan transition-colors">081-138-1555</a>
+            {' '}เพื่อปรึกษาเกี่ยวกับงานขึ้นรูปโลหะของคุณ
           </p>
         </div>
       </section>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: 'https://wattanabrother.com/products/reactor',
   },
   openGraph: {
-    title: 'เครื่องปฏิกรณ์ | วัฒนาบราเดอร์',
+    title: 'เครื่องปฏิกรณ์ | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'เครื่องปฏิกรณ์แปรรูปเคมีอุตสาหกรรม',
     url: 'https://wattanabrother.com/products/reactor',
   },

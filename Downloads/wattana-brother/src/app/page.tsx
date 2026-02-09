@@ -4,7 +4,7 @@ import ClientLogos from '@/components/ClientLogos'
 
 export const metadata: Metadata = {
   title: 'หน้าแรก',
-  description: 'บริษัท วัฒนาบราเดอร์ จำกัด ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส รับผลิตถังแรงดัน ถังผสมสารเคมี งานตัดเหล็ก ตั้งแต่ปี 1984',
+  description: 'บริษัท วัฒนบราเดอร์ จำกัด ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส รับผลิตถังแรงดัน ถังผสมสารเคมี งานตัดเหล็ก ตั้งแต่ปี 1984',
   alternates: {
     canonical: 'https://wattanabrother.com',
   },
@@ -103,7 +103,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-navy opacity-60" aria-hidden="true"></div>
         <div className="relative z-10 text-center text-ice-white px-4">
           <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl font-bold mb-4">
-            วัฒนาบราเดอร์
+            บริษัท วัฒนบราเดอร์ จำกัด
           </h1>
           <p className="hero-subtitle text-xl sm:text-2xl md:text-3xl font-light mb-2">
             ก่อตั้งตั้งแต่ปี พ.ศ. 2527
@@ -142,7 +142,7 @@ export default function Home() {
                   รับผลิตงานเหล็กและสแตนเลสตามสั่ง
                 </h3>
                 <p className="text-slate text-lg mb-6">
-                  บริษัท วัฒนาบราเธอร์ จำกัด ดำเนินธุรกิจด้านการผลิตงานเหล็กและสแตนเลสมาตั้งแต่ปี พ.ศ. 2527 ด้วยประสบการณ์มากกว่า 27 ปี เราเชี่ยวชาญงานผลิตตามแบบ งานโครงสร้าง และงานถังอุตสาหกรรม ใส่ใจในคุณภาพ ความแข็งแรง และความแม่นยำในทุกขั้นตอนการผลิต เพื่อตอบโจทย์การใช้งานของภาคอุตสาหกรรมอย่างแท้จริง
+                  บริษัท วัฒนบราเดอร์ จำกัด ดำเนินธุรกิจด้านการผลิตงานเหล็กและสแตนเลสมาตั้งแต่ปี พ.ศ. 2527 ด้วยประสบการณ์มากกว่า 27 ปี เราเชี่ยวชาญงานผลิตตามแบบ งานโครงสร้าง และงานถังอุตสาหกรรม ใส่ใจในคุณภาพ ความแข็งแรง และความแม่นยำในทุกขั้นตอนการผลิต เพื่อตอบโจทย์การใช้งานของภาคอุตสาหกรรมอย่างแท้จริง
                 </p>
                 <Link
                   href="/contact/"
@@ -392,12 +392,20 @@ export default function Home() {
               >
                 ติดต่อเรา
               </Link>
-              <a
-                href="tel:+6627498115"
-                className="bg-transparent border-2 border-ice-white hover:bg-ice-white hover:text-steel-blue font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
-              >
-                โทร: 02-749-8115-6
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <a
+                  href="tel:+6627498115"
+                  className="bg-transparent border-2 border-ice-white hover:bg-ice-white hover:text-steel-blue font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  โทร: 02-749-8115-6
+                </a>
+                <a
+                  href="tel:+66811381555"
+                  className="bg-transparent border-2 border-ice-white hover:bg-ice-white hover:text-steel-blue font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  โทร: 081-138-1555
+                </a>
+              </div>
             </div>
           </div>
         </div>

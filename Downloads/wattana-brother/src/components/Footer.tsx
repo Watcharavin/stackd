@@ -13,22 +13,24 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="animate-slide-left">
-            <h3 className="text-xl font-bold mb-4 gradient-text">วัฒนาบราเดอร์</h3>
+            <h3 className="text-xl font-bold mb-4 gradient-text">บริษัท วัฒนบราเดอร์ จำกัด</h3>
             <p className="text-slate mb-2 transition-colors duration-300 hover:text-fog-gray">
               ก่อตั้งตั้งแต่ปี พ.ศ. 2527
             </p>
             <p className="text-slate mb-4 transition-colors duration-300 hover:text-fog-gray">
               ผู้เชี่ยวชาญงานขึ้นรูปโลหะและสแตนเลส ด้วยประสบการณ์กว่า 27 ปี
             </p>
-            <p className="text-slate group">
-              <strong className="text-ice-white">โทรศัพท์:</strong>{' '}
-              <a
-                href="tel:+6627498115"
-                className="hover:text-accent-cyan transition-colors duration-300"
-              >
-                02-749-8115-6
-              </a>
-            </p>
+            <div className="text-slate">
+              <strong className="text-ice-white">โทรศัพท์:</strong>
+              <div className="mt-1 space-y-1">
+                <a href="tel:+6627498115" className="block hover:text-accent-cyan transition-colors duration-300">
+                  02-749-8115-6
+                </a>
+                <a href="tel:+66811381555" className="block hover:text-accent-cyan transition-colors duration-300">
+                  081-138-1555
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -40,7 +42,6 @@ export default function Footer() {
                 { name: 'โรงงาน', href: '/factory/' },
                 { name: 'สินค้า', href: '/products/' },
                 { name: 'บริการ', href: '/supply/' },
-                { name: 'ข่าวสาร', href: '/news/' },
                 { name: 'ติดต่อเรา', href: '/contact/' },
               ].map((link) => (
                 <li key={link.href} className="footer-link-item">
@@ -101,7 +102,7 @@ export default function Footer() {
           <p className="text-slate text-sm">
             &copy; {new Date().getFullYear()}{' '}
             <span className="text-ice-white font-semibold hover:text-accent-cyan transition-colors duration-300">
-              บริษัท วัฒนาบราเดอร์ จำกัด
+              บริษัท วัฒนบราเดอร์ จำกัด
             </span>{' '}
             สงวนลิขสิทธิ์
           </p>

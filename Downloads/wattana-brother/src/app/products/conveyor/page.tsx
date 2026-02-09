@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'ระบบสายพานลำเลียงที่แข็งแรง สำหรับการขนส่งวัสดุอุตสาหกรรมและการผสานรวมสายการผลิต',
   alternates: { canonical: 'https://wattanabrother.com/products/conveyor' },
   openGraph: {
-    title: 'สายพานลำเลียง | วัฒนาบราเดอร์',
+    title: 'สายพานลำเลียง | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ระบบสายพานลำเลียงอุตสาหกรรม',
     url: 'https://wattanabrother.com/products/conveyor',
   },

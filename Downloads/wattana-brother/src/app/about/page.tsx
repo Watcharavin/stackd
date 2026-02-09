@@ -2,14 +2,14 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about Wattana Brother Co.,Ltd., a metal and stainless steel production specialist established in 1984 with 27 years of industry experience.',
+  title: 'เกี่ยวกับเรา',
+  description: 'บริษัท วัฒนบราเดอร์ จำกัด ผู้เชี่ยวชาญงานผลิตเหล็กและสแตนเลส ก่อตั้งปี พ.ศ. 2527 ประสบการณ์กว่า 27 ปี',
   alternates: {
     canonical: 'https://wattanabrother.com/about',
   },
   openGraph: {
-    title: 'About Us | Wattana Brother',
-    description: 'Metal and stainless steel production specialist since 1984',
+    title: 'เกี่ยวกับเรา | บริษัท วัฒนบราเดอร์ จำกัด',
+    description: 'ผู้เชี่ยวชาญงานผลิตเหล็กและสแตนเลส ตั้งแต่ปี พ.ศ. 2527',
     url: 'https://wattanabrother.com/about',
   },
 }
@@ -53,7 +53,7 @@ export default function AboutPage() {
       {/* Page Header */}
       <section className="bg-steel-blue text-ice-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">เกี่ยวกับวัฒนาบราเธอร์</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">เกี่ยวกับบริษัท วัฒนบราเดอร์ จำกัด</h1>
           <p className="text-xl text-fog-gray">ความเป็นเลิศในงานผลิตเหล็กและสแตนเลส ตั้งแต่ปี 1984</p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             <div className="bg-ice-white rounded-lg shadow-lg p-8 md:p-12 mb-8 animate-fade-in">
               <h2 className="text-3xl font-bold text-charcoal mb-6">บริษัทของเรา</h2>
               <p className="text-lg text-slate mb-4 leading-relaxed">
-                <strong className="text-charcoal">บริษัท วัฒนาบราเธอร์ จำกัด</strong> ก่อตั้งขึ้นในปี พ.ศ. 2527 
+                <strong className="text-charcoal">บริษัท วัฒนบราเดอร์ จำกัด</strong> ก่อตั้งขึ้นในปี พ.ศ. 2527 
                 เราเป็นผู้เชี่ยวชาญด้านการผลิตงานเหล็กและสแตนเลสมาอย่างยาวนาน กว่า 27 ปี 
                 ด้วยประสบการณ์และความเชี่ยวชาญที่สั่งสมมา ทำให้เราเป็นพันธมิตรที่เชื่อถือได้ 
                 สำหรับธุรกิจที่ต้องการงานผลิตโลหะคุณภาพสูงตามแบบที่กำหนด
@@ -152,7 +152,7 @@ export default function AboutPage() {
 
             {/* Why Choose Us */}
             <div className="bg-ice-white rounded-lg shadow-lg p-8 md:p-12 mb-8">
-              <h2 className="text-3xl font-bold text-charcoal mb-6">ทำไมต้องเลือกวัฒนาบราเธอร์?</h2>
+              <h2 className="text-3xl font-bold text-charcoal mb-6">ทำไมต้องเลือกบริษัท วัฒนบราเดอร์ จำกัด?</h2>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <svg 

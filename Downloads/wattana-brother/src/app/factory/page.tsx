@@ -3,12 +3,12 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'โรงงาน',
-  description: 'สำรวจโรงงานที่ทันสมัยของวัฒนาบราเดอร์ สำหรับการผลิตโลหะและสแตนเลส ถังความดัน และงานขึ้นรูปโลหะอุตสาหกรรม',
+  description: 'สำรวจโรงงานที่ทันสมัยของบริษัท วัฒนบราเดอร์ จำกัด สำหรับการผลิตโลหะและสแตนเลส ถังความดัน และงานขึ้นรูปโลหะอุตสาหกรรม',
   alternates: {
     canonical: 'https://wattanabrother.com/factory',
   },
   openGraph: {
-    title: 'โรงงาน | วัฒนาบราเดอร์',
+    title: 'โรงงาน | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'โรงงานขึ้นรูปโลหะที่ทันสมัย',
     url: 'https://wattanabrother.com/factory',
   },

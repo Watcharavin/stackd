@@ -9,7 +9,6 @@ const navLinks = [
   { name: 'โรงงาน', href: '/factory/' },
   { name: 'สินค้า', href: '/products/' },
   { name: 'บริการ', href: '/supply/' },
-  { name: 'ข่าวสาร', href: '/news/' },
   { name: 'ติดต่อ', href: '/contact/' },
 ]
 
@@ -62,13 +61,9 @@ export default function Header() {
 
           {/* Right Side - Phone + CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a
-              href="tel:+6627498115"
-              className="flex items-center space-x-2 px-4 py-2 text-sm text-ice-white hover:text-accent-cyan transition-all duration-300 group"
-              aria-label="Call us at 02-749-8115"
-            >
+            <div className="flex items-center space-x-3">
               <svg
-                className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
+                className="w-5 h-5 text-ice-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -81,8 +76,11 @@ export default function Header() {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span className="font-semibold">02-749-8115-6</span>
-            </a>
+              <div className="flex flex-col text-sm">
+                <a href="tel:+6627498115" className="font-semibold text-ice-white hover:text-accent-cyan transition-colors">02-749-8115-6</a>
+                <a href="tel:+66811381555" className="font-semibold text-ice-white hover:text-accent-cyan transition-colors">081-138-1555</a>
+              </div>
+            </div>
 
             <Link
               href="/contact/"
@@ -152,25 +150,16 @@ export default function Header() {
 
             {/* Mobile Phone */}
             <li className="pt-2 border-t border-steel-blue/30 mt-2">
-              <a
-                href="tel:+6627498115"
-                className="flex items-center space-x-3 px-4 py-3 text-ice-white hover:bg-steel-blue/30 hover:text-accent-cyan rounded-lg transition-all duration-200"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <span className="font-semibold">02-749-8115-6</span>
-              </a>
+              <div className="px-4 py-3">
+                <div className="flex items-center space-x-3 text-ice-white mb-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="font-semibold">โทรหาเรา</span>
+                </div>
+                <a href="tel:+6627498115" className="block pl-8 py-1 text-ice-white hover:text-accent-cyan transition-colors">02-749-8115-6</a>
+                <a href="tel:+66811381555" className="block pl-8 py-1 text-ice-white hover:text-accent-cyan transition-colors">081-138-1555</a>
+              </div>
             </li>
 
             {/* Mobile CTA */}

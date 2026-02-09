@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: 'https://wattanabrother.com/products/water-filter',
   },
   openGraph: {
-    title: 'เครื่องกรองน้ำ | วัฒนาบราเดอร์',
+    title: 'เครื่องกรองน้ำ | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ระบบกรองน้ำสแตนเลสระดับอุตสาหกรรม',
     url: 'https://wattanabrother.com/products/water-filter',
   },

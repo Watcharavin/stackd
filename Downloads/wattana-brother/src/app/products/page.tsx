@@ -3,12 +3,12 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'สินค้า',
-  description: 'สำรวจผลิตภัณฑ์โลหะและสแตนเลสของวัฒนาบราเดอร์ รวมถึงเครื่องกรองน้ำ เครื่องปฏิกรณ์ โม่พลาสติก และสายพานลำเลียง',
+  description: 'สำรวจผลิตภัณฑ์โลหะและสแตนเลสของบริษัท วัฒนบราเดอร์ จำกัด รวมถึงเครื่องกรองน้ำ เครื่องปฏิกรณ์ โม่พลาสติก และสายพานลำเลียง',
   alternates: {
     canonical: 'https://wattanabrother.com/products',
   },
   openGraph: {
-    title: 'สินค้า | วัฒนาบราเดอร์',
+    title: 'สินค้า | บริษัท วัฒนบราเดอร์ จำกัด',
     description: 'ผลิตภัณฑ์ขึ้นรูปโลหะและสแตนเลส',
     url: 'https://wattanabrother.com/products',
   },
