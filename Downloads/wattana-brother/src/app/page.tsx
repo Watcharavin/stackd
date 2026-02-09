@@ -135,21 +135,21 @@ export default function Home() {
       </section>
 
       {/* Stats Section - Floating Cards */}
-      <section className="relative -mt-16 z-20 pb-8">
+      <section className="relative -mt-16 z-20 pb-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-center"
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-center"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-steel-blue to-accent-cyan rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-14 h-14 bg-gradient-to-br from-steel-blue to-accent-cyan rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
                   </svg>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-steel-blue mb-1">{stat.number}</div>
-                <div className="text-sm text-slate font-medium">{stat.label}</div>
+                <div className="text-3xl md:text-5xl font-bold text-steel-blue mb-2">{stat.number}</div>
+                <div className="text-sm md:text-base text-slate font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
