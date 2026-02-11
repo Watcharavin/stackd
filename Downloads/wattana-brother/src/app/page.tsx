@@ -16,6 +16,7 @@ export default function Home() {
     { name: 'ถังปฏิกรณ์', slug: 'reactor', image: '/images/reactor.jpg', desc: 'ถังปฏิกรณ์สำหรับงานเคมี' },
     { name: 'เครื่องบดพลาสติก', slug: 'plastic-mole', image: '/images/plastic-mole.jpg', desc: 'เครื่องบดพลาสติกประสิทธิภาพสูง' },
     { name: 'สายพานลำเลียง', slug: 'conveyor', image: '/images/conveyor.jpg', desc: 'ระบบสายพานลำเลียงครบวงจร' },
+    { name: 'เสาป้ายโฆษณา', slug: 'advertising-pole', image: '/images/advertising-pole.jpg', desc: 'โครงสร้างเสาป้ายโฆษณาแข็งแรง' },
   ]
 
   const services = [
@@ -305,7 +306,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {products.map((product) => (
               <Link
                 key={product.slug}
