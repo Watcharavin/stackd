@@ -143,7 +143,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-fog-gray text-sm">ที่อยู่</p>
-                        <p className="font-semibold">กรุงเทพมหานคร ประเทศไทย</p>
+                        <p className="font-semibold">ซอย แบริ่ง 26 ตำบล สำโรงเหนือ อำเภอเมืองสมุทรปราการ สมุทรปราการ 10270</p>
                       </div>
                     </div>
 

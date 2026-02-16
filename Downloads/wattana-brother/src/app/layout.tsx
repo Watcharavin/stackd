@@ -75,9 +75,11 @@ export default function RootLayout({
               email: 'wattanabrother@hotmail.com',
               address: {
                 '@type': 'PostalAddress',
+                streetAddress: 'ซอย แบริ่ง 26',
+                addressLocality: 'ตำบล สำโรงเหนือ อำเภอเมืองสมุทรปราการ',
+                addressRegion: 'สมุทรปราการ',
+                postalCode: '10270',
                 addressCountry: 'TH',
-                addressLocality: 'กรุงเทพมหานคร',
-                addressRegion: 'กรุงเทพมหานคร',
               },
               geo: {
                 '@type': 'GeoCoordinates',
