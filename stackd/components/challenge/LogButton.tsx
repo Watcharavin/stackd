@@ -110,7 +110,16 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
         return;
       }
 
-      // 6. Update member stats
+      // 6. Post photo proof to Trash Talk
+      await supabase.from("messages").insert({
+        challenge_id: challengeId,
+        user_id: userId,
+        text: "logged today 📷",
+        type: "message",
+        photo_url,
+      });
+
+      // 7. Update member stats
       const { data: member } = await supabase
         .from("challenge_members")
         .select("logged_days, streak_days, last_log_date")

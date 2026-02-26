@@ -131,13 +131,21 @@ export function TrashTalk({ challengeId, currentUserId }: TrashTalkProps) {
                 )}
                 <div
                   className={cn(
-                    "px-3 py-2 rounded-2xl text-sm",
+                    "rounded-2xl text-sm overflow-hidden",
                     isMe
                       ? "bg-lime text-bg rounded-tr-sm"
                       : "bg-surface text-text border border-border rounded-tl-sm"
                   )}
                 >
-                  {msg.text}
+                  {msg.photo_url && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={msg.photo_url}
+                      alt="proof"
+                      className="w-full max-w-[200px] object-cover"
+                    />
+                  )}
+                  <p className="px-3 py-2">{msg.text}</p>
                 </div>
                 <p className="text-[10px] text-muted mt-0.5">
                   {formatTime(msg.created_at)}

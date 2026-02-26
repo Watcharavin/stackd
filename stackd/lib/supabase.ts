@@ -122,6 +122,7 @@ export type Database = {
           user_id: string;
           text: string;
           type: "message" | "system" | "trash_talk";
+          photo_url: string | null;
           created_at: string;
         };
         Insert: {
@@ -129,6 +130,7 @@ export type Database = {
           user_id: string;
           text: string;
           type?: "message" | "system" | "trash_talk";
+          photo_url?: string | null;
         };
         Update: {
           text?: string;
