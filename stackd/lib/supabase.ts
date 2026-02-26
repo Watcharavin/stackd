@@ -99,6 +99,7 @@ export type Database = {
           user_id: string;
           date: string;
           photo_url: string | null;
+          photo_hash: string | null;
           created_at: string;
         };
         Insert: {
@@ -106,9 +107,11 @@ export type Database = {
           user_id: string;
           date: string;
           photo_url?: string | null;
+          photo_hash?: string | null;
         };
         Update: {
           photo_url?: string | null;
+          photo_hash?: string | null;
         };
         Relationships: [];
       };

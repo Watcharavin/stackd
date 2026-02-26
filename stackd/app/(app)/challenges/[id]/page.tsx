@@ -1,13 +1,16 @@
 // app/(app)/challenges/[id]/page.tsx
 import { notFound, redirect } from "next/navigation";
+import Link from "next/link";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
 import { Topbar } from "@/components/layout/Topbar";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Leaderboard } from "@/components/challenge/Leaderboard";
 import { LogButton } from "@/components/challenge/LogButton";
 import { InviteButton } from "@/components/challenge/InviteButton";
 import { TrashTalk } from "@/components/challenge/TrashTalk";
+import { DeleteChallengeButton } from "@/components/challenge/DeleteChallengeButton";
 import { formatDate, daysRemaining } from "@/lib/utils";
 import type { ChallengeRow, MemberRow } from "@/lib/supabase";
 
@@ -55,6 +58,7 @@ export default async function ChallengePage({ params }: Props) {
   const days = daysRemaining(challenge.end_date);
   const isMember = !!membership;
   const loggedToday = !!todayLog;
+  const isCreator = challenge.creator_id === user.id;
 
   return (
     <div>
@@ -96,6 +100,18 @@ export default async function ChallengePage({ params }: Props) {
                   <p className="text-sm font-medium text-red">💀 {challenge.punishment}</p>
                 </div>
               )}
+            </div>
+          )}
+
+          {/* Creator actions */}
+          {isCreator && (
+            <div className="flex gap-2 mt-4 pt-4 border-t border-border">
+              <Link href={`/challenges/${id}/edit`} className="flex-1">
+                <Button variant="secondary" size="sm" className="w-full">
+                  ✏️ Edit
+                </Button>
+              </Link>
+              <DeleteChallengeButton challengeId={id} />
             </div>
           )}
         </Card>
