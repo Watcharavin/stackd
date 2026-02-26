@@ -2,7 +2,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 
 interface DeleteChallengeButtonProps {
@@ -11,7 +10,6 @@ interface DeleteChallengeButtonProps {
 
 export function DeleteChallengeButton({ challengeId }: DeleteChallengeButtonProps) {
   const supabase = createClient();
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   async function handleDelete() {
@@ -31,8 +29,7 @@ export function DeleteChallengeButton({ challengeId }: DeleteChallengeButtonProp
       return;
     }
 
-    router.push("/challenges");
-    router.refresh();
+    window.location.href = "/challenges";
   }
 
   return (
