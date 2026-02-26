@@ -1,6 +1,11 @@
 /* app/globals.css */
 @import "tailwindcss";
 
+@source "../app/**/*.{tsx,ts,jsx,js}";
+@source "../components/**/*.{tsx,ts,jsx,js}";
+@source "../lib/**/*.{tsx,ts}";
+@source "../hooks/**/*.{tsx,ts}";
+
 @theme {
   /* Stackd Dark Design System */
   --color-bg:       #0A0A0C;
