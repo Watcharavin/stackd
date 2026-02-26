@@ -18,6 +18,33 @@ export function DeleteChallengeButton({ challengeId }: DeleteChallengeButtonProp
 
     setLoading(true);
 
+    // 1. Get all members to find their storage folders
+    const { data: members } = await supabase
+      .from("challenge_members")
+      .select("user_id")
+      .eq("challenge_id", challengeId);
+
+    // 2. List and delete all photos for this challenge from Storage
+    const filesToDelete: string[] = [];
+    for (const member of members ?? []) {
+      const { data: files } = await supabase.storage
+        .from("log-photos")
+        .list(member.user_id);
+
+      const challengeFiles = files?.filter((f) =>
+        f.name.startsWith(`${challengeId}-`)
+      ) ?? [];
+
+      challengeFiles.forEach((f) =>
+        filesToDelete.push(`${member.user_id}/${f.name}`)
+      );
+    }
+
+    if (filesToDelete.length > 0) {
+      await supabase.storage.from("log-photos").remove(filesToDelete);
+    }
+
+    // 3. Delete the challenge (cascades to members, logs, messages)
     const { error } = await supabase
       .from("challenges")
       .delete()
