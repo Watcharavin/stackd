@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
 import { Topbar } from "@/components/layout/Topbar";
 import { ProfileForm } from "@/components/profile/ProfileForm";
+import { LogoutButton } from "@/components/profile/LogoutButton";
 import { Avatar } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import type { UserRow } from "@/lib/supabase";
@@ -75,6 +76,9 @@ export default async function ProfilePage() {
             currentUsername={profile?.username ?? ""}
           />
         </Card>
+
+        {/* Logout */}
+        <LogoutButton />
 
       </div>
     </div>
