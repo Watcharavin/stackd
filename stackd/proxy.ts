@@ -2,7 +2,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PUBLIC_ROUTES = ["/", "/login", "/signup"];
+const PUBLIC_ROUTES = ["/", "/login", "/signup", "/join"];
+const PUBLIC_PREFIXES = ["/api/", "/join/"];
 
 export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
@@ -31,9 +32,9 @@ export async function proxy(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
   const { pathname } = request.nextUrl;
 
-  const isPublic = PUBLIC_ROUTES.some(
-    (r) => pathname === r || pathname.startsWith(r + "/")
-  );
+  const isPublic =
+    PUBLIC_ROUTES.some((r) => pathname === r || pathname.startsWith(r + "/")) ||
+    PUBLIC_PREFIXES.some((p) => pathname.startsWith(p));
 
   // Not logged in → redirect to login (except public routes)
   if (!user && !isPublic) {

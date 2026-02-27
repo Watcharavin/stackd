@@ -4,8 +4,6 @@ import Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 
-export const runtime = "nodejs";
-
 export async function POST(req: NextRequest) {
   const body = await req.text();
   const sig = req.headers.get("stripe-signature");
