@@ -1,11 +1,16 @@
 // app/(app)/profile/page.tsx
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
 import { Topbar } from "@/components/layout/Topbar";
 import { ProfileForm } from "@/components/profile/ProfileForm";
 import { LogoutButton } from "@/components/profile/LogoutButton";
 import { Avatar } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ProBadge } from "@/components/subscription/ProBadge";
+import { ManageSubscriptionButton } from "@/components/subscription/ManageSubscriptionButton";
+import { formatDate } from "@/lib/utils";
 import type { UserRow } from "@/lib/supabase";
 
 export default async function ProfilePage() {
@@ -46,9 +51,12 @@ export default async function ProfilePage() {
             size="xl"
           />
           <div>
-            <h2 className="font-heading text-xl font-bold text-text">
-              {profile?.username ?? "…"}
-            </h2>
+            <div className="flex items-center gap-2">
+              <h2 className="font-heading text-xl font-bold text-text">
+                {profile?.username ?? "…"}
+              </h2>
+              {profile?.is_pro && <ProBadge />}
+            </div>
             <p className="text-sm text-muted">{user.email}</p>
           </div>
         </Card>
@@ -67,6 +75,35 @@ export default async function ProfilePage() {
             </Card>
           ))}
         </div>
+
+        {/* Subscription */}
+        <Card>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-heading font-semibold text-text">Subscription</h3>
+            {profile?.is_pro && <ProBadge />}
+          </div>
+
+          {profile?.is_pro ? (
+            <div className="space-y-3">
+              <p className="text-sm text-muted">
+                Pro plan active
+                {profile.stripe_period_end && (
+                  <> · renews {formatDate(profile.stripe_period_end)}</>
+                )}
+              </p>
+              <ManageSubscriptionButton />
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <p className="text-sm text-muted">
+                Free plan · 2 active challenges · 6 members per challenge
+              </p>
+              <Link href="/upgrade">
+                <Button className="w-full">⚡ Upgrade to Pro</Button>
+              </Link>
+            </div>
+          )}
+        </Card>
 
         {/* Edit form */}
         <Card>

@@ -14,15 +14,27 @@ export type Database = {
           username: string;
           avatar_url: string | null;
           created_at: string;
+          is_pro: boolean;
+          stripe_customer_id: string | null;
+          stripe_subscription_id: string | null;
+          stripe_period_end: string | null;
         };
         Insert: {
           id: string;
           username: string;
           avatar_url?: string | null;
+          is_pro?: boolean;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          stripe_period_end?: string | null;
         };
         Update: {
           username?: string;
           avatar_url?: string | null;
+          is_pro?: boolean;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          stripe_period_end?: string | null;
         };
         Relationships: [];
       };

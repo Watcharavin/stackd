@@ -6,11 +6,12 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { createClient } from "@/lib/supabase";
 import { Topbar } from "@/components/layout/Topbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import { PaywallModal } from "@/components/subscription/PaywallModal";
+import { createChallenge } from "./actions";
 
 const EMOJIS = ["🎯", "💪", "📚", "🏃", "🧘", "✍️", "🎸", "🥗", "💻", "🌅", "🚴", "🏊"];
 
@@ -33,10 +34,10 @@ function minDate() {
 }
 
 export default function NewChallengePage() {
-  const supabase = createClient();
   const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null);
   const [selectedEmoji, setSelectedEmoji] = useState("🎯");
+  const [showPaywall, setShowPaywall] = useState(false);
 
   const {
     register,
@@ -50,28 +51,20 @@ export default function NewChallengePage() {
 
   async function onSubmit(data: FormData) {
     setServerError(null);
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) { router.push("/login"); return; }
+    const result = await createChallenge({
+      name: data.name,
+      emoji: data.emoji,
+      goal: data.goal,
+      end_date: data.end_date,
+      reward: data.reward || null,
+      punishment: data.punishment || null,
+      privacy: data.privacy,
+    });
 
-    const { data: challenge, error } = await supabase
-      .from("challenges")
-      .insert({
-        name: data.name,
-        emoji: data.emoji,
-        goal: data.goal,
-        start_date: new Date().toISOString().split("T")[0],
-        end_date: data.end_date,
-        reward: data.reward || null,
-        punishment: data.punishment || null,
-        privacy: data.privacy,
-        creator_id: user.id,
-        status: "active",
-      })
-      .select("id")
-      .single();
-
-    if (error) { setServerError(error.message); return; }
-    router.push(`/challenges/${challenge.id}`);
+    if (result?.error === "limit_reached") { setShowPaywall(true); return; }
+    if (result?.error === "unauthorized") { router.push("/login"); return; }
+    if (result?.error) { setServerError(result.error); return; }
+    // On success, createChallenge redirects server-side
   }
 
   return (
@@ -181,6 +174,12 @@ export default function NewChallengePage() {
           </Button>
         </form>
       </div>
+
+      <PaywallModal
+        open={showPaywall}
+        onClose={() => setShowPaywall(false)}
+        reason="challenge_limit"
+      />
     </div>
   );
 }
