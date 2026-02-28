@@ -149,6 +149,24 @@ export type Database = {
         };
         Relationships: [];
       };
+      push_subscriptions: {
+        Row: {
+          id: string;
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+        };
+        Update: Record<string, never>;
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: { [_ in never]: never };
@@ -163,6 +181,7 @@ export type MemberRow = Database["public"]["Tables"]["challenge_members"]["Row"]
 export type UserRow = Database["public"]["Tables"]["users"]["Row"];
 export type LogRow = Database["public"]["Tables"]["logs"]["Row"];
 export type MessageRow = Database["public"]["Tables"]["messages"]["Row"];
+export type PushSubscriptionRow = Database["public"]["Tables"]["push_subscriptions"]["Row"];
 
 // ─── Browser Client (use in Client Components) ────────────────────────────────
 

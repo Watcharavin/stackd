@@ -145,6 +145,13 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
           .eq("user_id", userId);
       }
 
+      // 8. Notify other members (fire-and-forget)
+      fetch("/api/push/notify/log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ challengeId, loggerUserId: userId }),
+      });
+
       window.location.reload();
     } catch {
       setError("Something went wrong. Please try again.");

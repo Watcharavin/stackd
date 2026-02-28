@@ -82,6 +82,13 @@ export function TrashTalk({ challengeId, currentUserId }: TrashTalkProps) {
       type: "message",
     });
 
+    // Notify other members (fire-and-forget)
+    fetch("/api/push/notify/message", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ challengeId, senderUserId: currentUserId, text: trimmed }),
+    });
+
     await fetchMessages();
     setSending(false);
   }

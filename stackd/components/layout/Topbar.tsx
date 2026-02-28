@@ -4,6 +4,7 @@
 import { useAuth } from "@/hooks/useAuth";
 import { Avatar } from "@/components/ui/avatar";
 import { ProBadge } from "@/components/subscription/ProBadge";
+import { NotificationBell } from "@/components/notifications/NotificationBell";
 import Link from "next/link";
 
 interface TopbarProps {
@@ -28,10 +29,13 @@ export function Topbar({ title }: TopbarProps) {
       <div className="flex-1 md:flex-none" />
 
       {/* Right side */}
-      <Link href="/profile" className="flex items-center gap-2">
-        {profile?.is_pro && <ProBadge />}
-        <Avatar src={profile?.avatar_url} username={profile?.username} size="sm" />
-      </Link>
+      <div className="flex items-center gap-1">
+        <NotificationBell />
+        <Link href="/profile" className="flex items-center gap-2">
+          {profile?.is_pro && <ProBadge />}
+          <Avatar src={profile?.avatar_url} username={profile?.username} size="sm" />
+        </Link>
+      </div>
     </header>
   );
 }
