@@ -65,7 +65,7 @@ export function Sidebar() {
       {/* Logo */}
       <div className="h-14 flex items-center px-5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <Link href="/dashboard" className="font-heading font-bold text-xl text-text tracking-tight">
-          Stack<span className="text-lime" style={{ textShadow: "0 0 16px rgba(200,240,0,0.35)" }}>d</span>
+          Stack<span className="text-lime" style={{ textShadow: "0 0 16px rgba(217,119,87,0.45)" }}>d</span>
         </Link>
       </div>
 
@@ -88,7 +88,7 @@ export function Sidebar() {
               {active && (
                 <span
                   className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-r-full bg-lime"
-                  style={{ boxShadow: "0 0 8px rgba(200,240,0,0.6)" }}
+                  style={{ boxShadow: "0 0 8px rgba(217,119,87,0.65)" }}
                 />
               )}
               <Icon active={active} />

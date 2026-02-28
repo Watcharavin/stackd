@@ -132,7 +132,7 @@ export default async function DashboardPage() {
 
                 return (
                   <Link href={`/challenges/${c.id}`} key={c.id} className="block group">
-                    <div className="cursor-pointer rounded-[--radius-card] border border-border bg-surface p-4 transition-all duration-200 hover:border-lime/30 hover:shadow-[0_0_0_1px_rgba(200,240,0,0.1)]">
+                    <div className="cursor-pointer rounded-[--radius-card] border border-border bg-surface p-4 transition-all duration-200 hover:border-lime/30 hover:shadow-[0_0_0_1px_rgba(217,119,87,0.12)]">
 
                       {/* Top row */}
                       <div className="mb-3 flex items-start gap-3">

@@ -7,16 +7,16 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       className="relative min-h-dvh bg-bg flex flex-col items-center justify-center px-4 overflow-hidden"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+          "radial-gradient(circle at 1px 1px, rgba(255,228,210,0.05) 1px, transparent 0)",
         backgroundSize: "28px 28px",
       }}
     >
-      {/* Lime glow blob — top right */}
+      {/* Orange glow blob — top right */}
       <div
         className="pointer-events-none absolute -top-32 -right-32 size-[500px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(200,240,0,0.07) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(217,119,87,0.09) 0%, transparent 70%)",
         }}
       />
       {/* Subtle glow — bottom left */}
@@ -24,7 +24,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         className="pointer-events-none absolute -bottom-24 -left-24 size-[320px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(200,240,0,0.04) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(217,119,87,0.05) 0%, transparent 70%)",
         }}
       />
 
@@ -33,16 +33,16 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         href="/"
         className="relative mb-8 font-heading font-bold text-3xl text-text tracking-tight"
       >
-        Stack<span className="text-lime" style={{ textShadow: "0 0 20px rgba(200,240,0,0.4)" }}>d</span>
+        Stack<span className="text-lime" style={{ textShadow: "0 0 20px rgba(217,119,87,0.5)" }}>d</span>
       </Link>
 
       {/* Card */}
       <div
         className="relative w-full max-w-sm rounded-[--radius-card] p-6 page-enter"
         style={{
-          background: "rgba(24, 24, 31, 0.8)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,240,0,0.04) inset",
+          background: "rgba(36, 33, 32, 0.85)",
+          border: "1px solid rgba(255,228,210,0.09)",
+          boxShadow: "0 8px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(217,119,87,0.04) inset",
           backdropFilter: "blur(16px)",
         }}
       >
@@ -51,7 +51,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           className="absolute inset-x-0 top-0 h-px rounded-t-[--radius-card]"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(200,240,0,0.2) 50%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, rgba(217,119,87,0.25) 50%, transparent 100%)",
           }}
         />
         {children}

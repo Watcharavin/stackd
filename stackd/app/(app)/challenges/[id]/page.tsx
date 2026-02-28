@@ -62,7 +62,7 @@ export default async function ChallengePage({ params }: Props) {
 
   return (
     <div>
-      <Topbar title={challenge.name} />
+      <Topbar title={challenge.name} backHref="/challenges" />
 
       <div className="max-w-lg mx-auto px-4 py-6 space-y-5">
 

@@ -38,7 +38,7 @@ export default async function UpgradePage() {
 
   return (
     <div>
-      <Topbar title="Upgrade to Pro" />
+      <Topbar title="Upgrade to Pro" backHref="/profile" />
 
       <div className="max-w-lg mx-auto px-4 py-8 space-y-6">
 

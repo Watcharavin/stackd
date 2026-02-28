@@ -69,7 +69,7 @@ export default function NewChallengePage() {
 
   return (
     <div>
-      <Topbar title="New Challenge" />
+      <Topbar title="New Challenge" backHref="/dashboard" />
       <div className="max-w-lg mx-auto px-4 py-6">
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

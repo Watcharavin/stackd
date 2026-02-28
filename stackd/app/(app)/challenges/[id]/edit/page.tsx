@@ -31,7 +31,7 @@ export default async function EditChallengePage({ params }: Props) {
 
   return (
     <div>
-      <Topbar title="Edit Challenge" />
+      <Topbar title="Edit Challenge" backHref={`/challenges/${id}`} />
       <div className="max-w-lg mx-auto px-4 py-6">
         <Card>
           <EditChallengeForm challenge={challenge} />
