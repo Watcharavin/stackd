@@ -10,7 +10,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Page content — padding-bottom for mobile nav */}
-        <main className="flex-1 pb-20 md:pb-0">
+        <main className="flex-1 pb-20 md:pb-0 page-enter">
           {children}
         </main>
       </div>

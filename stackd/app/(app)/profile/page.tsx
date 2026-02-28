@@ -27,7 +27,6 @@ export default async function ProfilePage() {
 
   const profile = raw as UserRow | null;
 
-  // Aggregate stats
   const { data: stats } = await supabase
     .from("challenge_members")
     .select("logged_days, streak_days, status")
@@ -41,44 +40,59 @@ export default async function ProfilePage() {
     <div>
       <Topbar title="Profile" />
 
-      <div className="max-w-lg mx-auto px-4 py-6 space-y-5">
+      <div className="max-w-lg mx-auto px-4 py-6 space-y-4">
 
-        {/* Avatar + name */}
-        <Card className="flex items-center gap-4">
-          <Avatar
-            src={profile?.avatar_url}
-            username={profile?.username}
-            size="xl"
+        {/* ── Avatar Hero ───────────────────────────────────────── */}
+        <div
+          className="relative overflow-hidden rounded-[--radius-card] p-6 text-center"
+          style={{
+            background: "linear-gradient(135deg, rgba(200,240,0,0.07) 0%, rgba(24,24,31,1) 60%)",
+            border: "1px solid rgba(200,240,0,0.1)",
+          }}
+        >
+          {/* bg glow */}
+          <div
+            className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 size-48 rounded-full"
+            style={{ background: "radial-gradient(circle, rgba(200,240,0,0.08) 0%, transparent 70%)" }}
           />
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="font-heading text-xl font-bold text-text">
-                {profile?.username ?? "…"}
-              </h2>
-              {profile?.is_pro && <ProBadge />}
-            </div>
-            <p className="text-sm text-muted">{user.email}</p>
-          </div>
-        </Card>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { label: "Days logged", value: totalLogged, icon: "✅" },
-            { label: "Best streak", value: `${bestStreak}d`, icon: "🔥" },
-            { label: "Active", value: activeChallenges, icon: "⚡" },
-          ].map(({ label, value, icon }) => (
-            <Card key={label} className="text-center py-4 px-2">
-              <p className="text-2xl mb-1">{icon}</p>
-              <p className="font-heading text-xl font-bold text-text">{value}</p>
-              <p className="text-xs text-muted mt-0.5">{label}</p>
-            </Card>
-          ))}
+          <div className="relative inline-block mb-3">
+            <Avatar
+              src={profile?.avatar_url}
+              username={profile?.username}
+              size="xl"
+              className="ring-2 ring-lime/20 ring-offset-2 ring-offset-bg"
+            />
+            {profile?.is_pro && (
+              <span className="absolute -bottom-1 -right-1">
+                <ProBadge />
+              </span>
+            )}
+          </div>
+
+          <h2 className="font-heading text-xl font-bold text-text">
+            {profile?.username ?? "…"}
+          </h2>
+          <p className="text-sm text-muted mt-0.5">{user.email}</p>
+
+          {/* inline stats */}
+          <div className="flex justify-center gap-6 mt-4 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            {[
+              { label: "Days logged", value: totalLogged, icon: "✅" },
+              { label: "Best streak", value: `${bestStreak}d`, icon: "🔥" },
+              { label: "Active",      value: activeChallenges, icon: "⚡" },
+            ].map(({ label, value, icon }) => (
+              <div key={label} className="text-center">
+                <p className="font-heading text-lg font-bold text-text">{icon} {value}</p>
+                <p className="text-[11px] text-muted mt-0.5">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Subscription */}
+        {/* ── Subscription ──────────────────────────────────────── */}
         <Card>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3">
             <h3 className="font-heading font-semibold text-text">Subscription</h3>
             {profile?.is_pro && <ProBadge />}
           </div>
@@ -105,7 +119,7 @@ export default async function ProfilePage() {
           )}
         </Card>
 
-        {/* Edit form */}
+        {/* ── Edit profile ──────────────────────────────────────── */}
         <Card>
           <h3 className="font-heading font-semibold text-text mb-4">Edit profile</h3>
           <ProfileForm
@@ -114,7 +128,7 @@ export default async function ProfilePage() {
           />
         </Card>
 
-        {/* Logout */}
+        {/* ── Logout ────────────────────────────────────────────── */}
         <LogoutButton />
 
       </div>
