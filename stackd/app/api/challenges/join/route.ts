@@ -1,6 +1,7 @@
 // app/api/challenges/join/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
+import { supabaseAdmin } from "@/lib/webpush";
 import { getChallengeMemberCount, FREE_MEMBER_LIMIT } from "@/lib/subscription";
 
 export async function POST(req: NextRequest) {
@@ -10,9 +11,8 @@ export async function POST(req: NextRequest) {
   const { challengeId } = await req.json();
   if (!challengeId) return NextResponse.json({ error: "Missing challengeId" }, { status: 400 });
 
-  const supabase = await createServerSupabase();
-
-  const { data: challenge } = await supabase
+  // Use admin client to bypass RLS — joiner is not yet a member so session client can't read private challenges
+  const { data: challenge } = await supabaseAdmin
     .from("challenges")
     .select("creator_id")
     .eq("id", challengeId)
