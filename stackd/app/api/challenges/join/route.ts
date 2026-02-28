@@ -11,6 +11,8 @@ export async function POST(req: NextRequest) {
   const { challengeId } = await req.json();
   if (!challengeId) return NextResponse.json({ error: "Missing challengeId" }, { status: 400 });
 
+  const supabase = await createServerSupabase();
+
   // Use admin client to bypass RLS — joiner is not yet a member so session client can't read private challenges
   const { data: challenge } = await supabaseAdmin
     .from("challenges")
