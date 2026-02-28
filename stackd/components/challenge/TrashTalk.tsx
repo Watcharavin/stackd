@@ -82,6 +82,7 @@ export function TrashTalk({ challengeId, currentUserId }: TrashTalkProps) {
       type: "message",
     });
 
+    await fetchMessages();
     setSending(false);
   }
 
