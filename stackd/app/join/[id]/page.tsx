@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
+import { supabaseAdmin } from "@/lib/webpush";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { JoinButton } from "@/components/challenge/JoinButton";
@@ -16,9 +17,8 @@ export default async function JoinPage({ params }: Props) {
   const { id } = await params;
   const user = await getUser();
 
-  const supabase = await createServerSupabase();
-
-  const { data: raw } = await supabase
+  // Use admin client to bypass RLS — invite links must be publicly readable
+  const { data: raw } = await supabaseAdmin
     .from("challenges")
     .select("*")
     .eq("id", id)
@@ -37,9 +37,10 @@ export default async function JoinPage({ params }: Props) {
     );
   }
 
-  // Check if already a member
+  // Check if already a member (use user-session client so RLS scopes to current user)
+  const supabase = user ? await createServerSupabase() : null;
   let isMember = false;
-  if (user) {
+  if (user && supabase) {
     const { data: membership } = await supabase
       .from("challenge_members")
       .select("user_id")
