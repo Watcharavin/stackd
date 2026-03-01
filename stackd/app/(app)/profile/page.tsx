@@ -1,4 +1,6 @@
 // app/(app)/profile/page.tsx
+export const dynamic = "force-dynamic";
+
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
