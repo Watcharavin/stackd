@@ -31,8 +31,8 @@ export function LeaveChallengeButton({ challengeId }: Props) {
       return;
     }
 
-    router.push("/challenges");
     router.refresh();
+    router.push("/challenges");
   }
 
   if (confirm) {
