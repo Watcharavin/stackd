@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { InviteButton } from "@/components/challenge/InviteButton";
 import { cn } from "@/lib/utils";
 
 const RANK_MEDALS = ["🥇", "🥈", "🥉"];
@@ -85,7 +86,12 @@ export function Leaderboard({ challengeId, currentUserId }: LeaderboardProps) {
       })}
 
       {entries.length === 0 && (
-        <p className="text-center text-sm text-muted py-6">No members yet</p>
+        <div className="flex flex-col items-center text-center py-10 gap-3">
+          <p className="text-3xl">👥</p>
+          <p className="font-heading font-semibold text-text text-sm">No teammates yet</p>
+          <p className="text-xs text-muted">Invite friends to start competing</p>
+          <InviteButton challengeId={challengeId} />
+        </div>
       )}
     </div>
   );

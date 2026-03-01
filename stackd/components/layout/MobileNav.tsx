@@ -59,8 +59,8 @@ export function MobileNav() {
     <nav
       className="md:hidden fixed bottom-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(24, 24, 31, 0.92)",
-        borderTop: "1px solid rgba(255,255,255,0.07)",
+        background: "rgba(26, 24, 22, 0.92)",
+        borderTop: "1px solid rgba(255, 228, 210, 0.08)",
         backdropFilter: "blur(20px)",
       }}
     >

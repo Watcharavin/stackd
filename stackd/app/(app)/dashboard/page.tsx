@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { QuickLogButton } from "@/components/challenge/QuickLogButton";
 import { daysRemaining } from "@/lib/utils";
 import type { Database } from "@/lib/supabase";
+import type { UserRow } from "@/lib/supabase";
 
 type Challenge = Database["public"]["Tables"]["challenges"]["Row"];
 type Member = Database["public"]["Tables"]["challenge_members"]["Row"];
@@ -38,7 +39,7 @@ export default async function DashboardPage() {
   const today = new Date().toISOString().split("T")[0];
 
   const [profileRes, membershipRes, todayLogsRes] = await Promise.all([
-    supabase.from("users").select("username").eq("id", user.id).single(),
+    supabase.from("users").select("username, is_pro").eq("id", user.id).single(),
     supabase
       .from("challenge_members")
       .select("*, challenges(*)")
@@ -51,7 +52,9 @@ export default async function DashboardPage() {
       .eq("date", today),
   ]);
 
-  const username = profileRes.data?.username ?? "friend";
+  const profile = profileRes.data as Pick<UserRow, "username" | "is_pro"> | null;
+  const username = profile?.username ?? "friend";
+  const isPro = profile?.is_pro ?? false;
   const memberships = (membershipRes.data ?? []) as unknown as MemberWithChallenge[];
   const active = memberships.filter((m) => m.challenges?.status === "active");
   const loggedTodaySet = new Set((todayLogsRes.data ?? []).map((l) => l.challenge_id));
@@ -214,6 +217,30 @@ export default async function DashboardPage() {
             </div>
           )}
         </section>
+
+        {/* ── Upgrade nudge (non-pro only) ─────────────────────── */}
+        {!isPro && (
+          <div
+            className="rounded-[--radius-card] p-4 flex items-center gap-4"
+            style={{
+              background: "linear-gradient(135deg, rgba(217,119,87,0.06) 0%, rgba(36,33,32,1) 60%)",
+              border: "1px solid rgba(217,119,87,0.15)",
+            }}
+          >
+            <span className="text-2xl shrink-0">⚡</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-text">Go Pro</p>
+              <p className="text-xs text-muted mt-0.5">
+                {active.length >= 2
+                  ? "You're at the free limit — unlock unlimited challenges"
+                  : "Unlimited challenges · unlimited members · ฿149/mo"}
+              </p>
+            </div>
+            <Link href="/upgrade" className="shrink-0">
+              <Button size="sm">Upgrade</Button>
+            </Link>
+          </div>
+        )}
 
       </div>
     </div>
