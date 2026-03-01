@@ -45,14 +45,14 @@
   --shadow-card-lg: 0 8px 40px rgba(0, 0, 0, 0.55);
 
   /* Animations */
-  --animate-fade-up:   fade-up 0.35s ease-out both;
+  --animate-fade-up:   fade-up 0.2s ease-out both;
   --animate-fade-in:   fade-in 0.25s ease-out both;
   --animate-scale-in:  scale-in 0.2s ease-out both;
 }
 
 /* ── Keyframes ──────────────────────────────────────────────── */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fade-in {
