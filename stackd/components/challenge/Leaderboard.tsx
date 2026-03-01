@@ -1,6 +1,7 @@
 // components/challenge/Leaderboard.tsx
 "use client";
 
+import Link from "next/link";
 import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -48,11 +49,16 @@ export function Leaderboard({ challengeId, currentUserId }: LeaderboardProps) {
             </span>
 
             {/* Avatar + name */}
-            <Avatar
-              src={entry.user.avatar_url}
-              username={entry.user.username}
-              size="sm"
-            />
+            <Link
+              href={isMe ? "/profile" : `/profile/${entry.user.username}`}
+              className="flex items-center gap-3 flex-1 min-w-0 hover:opacity-80 transition-opacity"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Avatar
+                src={entry.user.avatar_url}
+                username={entry.user.username}
+                size="sm"
+              />
             <div className="flex-1 min-w-0">
               <p className={cn("text-sm font-medium truncate", isMe ? "text-lime" : "text-text")}>
                 {entry.user.username}
@@ -62,6 +68,7 @@ export function Leaderboard({ challengeId, currentUserId }: LeaderboardProps) {
                 🔥 {entry.streak_days} streak · ✅ {entry.logged_days} days
               </p>
             </div>
+            </Link>
 
             {/* Status */}
             <Badge
