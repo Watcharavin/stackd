@@ -2,14 +2,12 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 interface Props {
   challengeId: string;
 }
 
 export function LeaveChallengeButton({ challengeId }: Props) {
-  const router = useRouter();
   const [confirm, setConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -31,8 +29,7 @@ export function LeaveChallengeButton({ challengeId }: Props) {
       return;
     }
 
-    router.refresh();
-    router.push("/challenges");
+    window.location.href = "/challenges";
   }
 
   if (confirm) {
