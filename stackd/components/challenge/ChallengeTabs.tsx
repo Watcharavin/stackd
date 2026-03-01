@@ -24,7 +24,7 @@ export function ChallengeTabs({ overview, chat }: Props) {
             key={t}
             onClick={() => setTab(t)}
             className={cn(
-              "flex-1 h-9 rounded-[--radius-btn] text-sm font-medium transition-all duration-200",
+              "flex-1 h-9 rounded-full text-sm font-medium transition-all duration-200",
               tab === t
                 ? "bg-lime text-bg shadow-sm"
                 : "text-muted hover:text-text"

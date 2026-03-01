@@ -21,7 +21,7 @@ export function Badge({ variant = "default", className, children, ...props }: Ba
     <span
       className={cn(
         "inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium",
-        "rounded-[--radius-chip] whitespace-nowrap",
+        "rounded-full whitespace-nowrap",
         variantStyles[variant],
         className
       )}

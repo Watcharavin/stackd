@@ -172,12 +172,12 @@ export function TrashTalk({ challengeId, currentUserId }: TrashTalkProps) {
           onChange={(e) => setText(e.target.value)}
           placeholder="Say something..."
           maxLength={200}
-          className="flex-1 h-10 bg-surface border border-border text-text placeholder:text-muted rounded-[--radius-input] px-3 text-sm focus:outline-none focus:border-lime/50 focus:ring-2 focus:ring-lime/10 transition-colors"
+          className="flex-1 h-10 bg-surface border border-border text-text placeholder:text-muted rounded-full px-4 text-sm focus:outline-none focus:border-lime/50 focus:ring-2 focus:ring-lime/10 transition-colors"
         />
         <button
           type="submit"
           disabled={!text.trim() || sending}
-          className="h-10 px-4 bg-lime text-bg font-medium text-sm rounded-[--radius-btn] hover:brightness-110 disabled:opacity-40 transition-all"
+          className="h-10 px-4 bg-lime text-bg font-medium text-sm rounded-full hover:brightness-110 disabled:opacity-40 transition-all"
         >
           Send
         </button>

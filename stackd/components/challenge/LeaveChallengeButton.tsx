@@ -39,14 +39,14 @@ export function LeaveChallengeButton({ challengeId }: Props) {
         <span className="text-sm text-muted">Sure?</span>
         <button
           onClick={() => setConfirm(false)}
-          className="h-9 px-3 rounded-[--radius-btn] text-sm font-medium text-muted border border-border hover:text-text hover:bg-white/5 transition-colors"
+          className="h-9 px-4 rounded-full text-sm font-medium text-muted border border-border hover:text-text hover:bg-white/5 transition-colors"
         >
           Cancel
         </button>
         <button
           onClick={handleLeave}
           disabled={loading}
-          className="h-9 px-3 rounded-[--radius-btn] text-sm font-medium text-red bg-red/10 border border-red/30 hover:bg-red/20 transition-colors disabled:opacity-50 flex items-center gap-1.5"
+          className="h-9 px-4 rounded-full text-sm font-medium text-red bg-red/10 border border-red/30 hover:bg-red/20 transition-colors disabled:opacity-50 flex items-center gap-1.5"
         >
           {loading ? (
             <span className="size-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
@@ -62,7 +62,7 @@ export function LeaveChallengeButton({ challengeId }: Props) {
   return (
     <button
       onClick={() => setConfirm(true)}
-      className="h-9 px-4 rounded-[--radius-btn] text-sm font-medium text-red border border-red/20 hover:bg-red/10 transition-colors flex items-center gap-2"
+      className="h-9 px-4 rounded-full text-sm font-medium text-red border border-red/20 hover:bg-red/10 transition-colors flex items-center gap-2"
     >
       <LogOutIcon />
       Leave

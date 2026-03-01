@@ -182,7 +182,7 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
           <button
             onClick={() => fileRef.current?.click()}
             disabled={loading}
-            className="w-full h-16 bg-lime text-bg font-heading font-bold text-lg rounded-[--radius-card] hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-[--shadow-glow] disabled:opacity-60"
+            className="w-full h-16 bg-lime text-bg font-heading font-bold text-lg rounded-[--radius-input] hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-[--shadow-glow] disabled:opacity-60"
           >
             {loading ? (
               <span className="size-5 rounded-full border-2 border-current border-t-transparent animate-spin" />
@@ -212,7 +212,7 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
             />
             <button
               onClick={handleRemove}
-              className="absolute top-2 right-2 size-7 bg-bg/80 backdrop-blur rounded-full flex items-center justify-center text-muted hover:text-text transition-colors"
+              className="absolute top-2 right-2 size-7 bg-bg/80 backdrop-blur rounded-full flex items-center justify-center text-muted hover:text-text transition-colors text-sm"
             >
               <XIcon className="size-3.5" />
             </button>
@@ -221,7 +221,7 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full h-12 bg-lime text-bg font-heading font-bold rounded-[--radius-card] hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2"
+            className="w-full h-12 bg-lime text-bg font-heading font-bold rounded-[--radius-input] hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2"
           >
             {loading ? (
               <span className="size-5 rounded-full border-2 border-current border-t-transparent animate-spin" />

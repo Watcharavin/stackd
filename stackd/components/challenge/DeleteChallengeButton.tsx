@@ -64,7 +64,7 @@ export function DeleteChallengeButton({ challengeId }: DeleteChallengeButtonProp
     <button
       onClick={handleDelete}
       disabled={loading}
-      className="h-9 px-4 bg-red/10 text-red border border-red/20 rounded-[--radius-btn] text-sm font-medium hover:bg-red/20 transition-colors disabled:opacity-50 flex items-center gap-2"
+      className="h-9 px-4 bg-red/10 text-red border border-red/20 rounded-full text-sm font-medium hover:bg-red/20 transition-colors disabled:opacity-50 flex items-center gap-2"
     >
       {loading ? (
         <span className="size-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
