@@ -52,10 +52,11 @@ export function NotificationsList({ initial, userId }: Props) {
   useEffect(() => {
     const supabase = createClient();
 
-    // Mark all existing unread as read via API (supabaseAdmin bypasses RLS)
-    fetch("/api/notifications/read", { method: "POST" }).then(() => {
+    // Mark all as read in DB — keep green borders visible for 2s so user sees what's new
+    fetch("/api/notifications/read", { method: "POST" });
+    const timer = setTimeout(() => {
       setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-    });
+    }, 2000);
 
     // Realtime — prepend new notifications as they arrive
     const channel = supabase
@@ -72,7 +73,10 @@ export function NotificationsList({ initial, userId }: Props) {
       )
       .subscribe();
 
-    return () => { supabase.removeChannel(channel); };
+    return () => {
+      clearTimeout(timer);
+      supabase.removeChannel(channel);
+    };
   }, [userId]);
 
   if (notifications.length === 0) {
