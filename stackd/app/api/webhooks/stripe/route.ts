@@ -41,6 +41,8 @@ export async function POST(req: NextRequest) {
 
     case "customer.subscription.updated": {
       const sub = event.data.object as Stripe.Subscription;
+      // Don't flip is_pro for transient statuses like "incomplete" or "past_due"
+      if (sub.status === "incomplete" || sub.status === "incomplete_expired") break;
       const isActive = sub.status === "active" || sub.status === "trialing";
       const periodEnd = sub.items.data[0]?.current_period_end;
       await supabaseAdmin.from("users").update({
