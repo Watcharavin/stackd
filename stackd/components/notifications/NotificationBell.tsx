@@ -11,13 +11,39 @@ export function NotificationBell() {
 
   useEffect(() => {
     const supabase = createClient();
+
+    // Initial fetch
     supabase
       .from("notifications")
       .select("id", { count: "exact", head: true })
       .eq("read", false)
-      .then(({ count }) => {
-        setUnread(count ?? 0);
-      });
+      .then(({ count }) => setUnread(count ?? 0));
+
+    // Realtime — listen for new notifications (RLS ensures only own rows)
+    const channel = supabase
+      .channel("notification-bell")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "notifications" },
+        (payload) => {
+          if (!payload.new.read) setUnread((prev) => prev + 1);
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "notifications" },
+        () => {
+          // Re-fetch count when notifications are marked read
+          supabase
+            .from("notifications")
+            .select("id", { count: "exact", head: true })
+            .eq("read", false)
+            .then(({ count }) => setUnread(count ?? 0));
+        }
+      )
+      .subscribe();
+
+    return () => { supabase.removeChannel(channel); };
   }, []);
 
   return (
