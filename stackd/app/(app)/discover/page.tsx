@@ -30,8 +30,10 @@ export default async function DiscoverPage() {
     .eq("privacy", "public")
     .eq("status", "active");
 
-  // Filter out challenges the user already joined
-  const available = (challenges ?? []).filter((c) => !joinedIds.has(c.id));
+  // Filter out challenges the user already joined or created
+  const available = (challenges ?? []).filter(
+    (c) => !joinedIds.has(c.id) && c.creator_id !== user.id
+  );
 
   return (
     <div>
