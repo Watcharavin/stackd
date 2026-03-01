@@ -1,6 +1,6 @@
 // app/api/challenges/leave/route.ts
 import { NextResponse } from "next/server";
-import { getUser, createServerSupabase } from "@/lib/supabase-server";
+import { getUser } from "@/lib/supabase-server";
 import { supabaseAdmin } from "@/lib/webpush";
 
 export async function DELETE(request: Request) {
@@ -27,9 +27,8 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: "Creator cannot leave the challenge" }, { status: 403 });
   }
 
-  // Delete membership via session client (respects RLS)
-  const supabase = await createServerSupabase();
-  const { error } = await supabase
+  // Delete membership via admin client (bypasses RLS)
+  const { error } = await supabaseAdmin
     .from("challenge_members")
     .delete()
     .eq("challenge_id", challengeId)
