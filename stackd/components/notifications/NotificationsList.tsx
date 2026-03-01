@@ -36,13 +36,13 @@ function NotificationItem({
       onClick={handleClick}
       className="rounded-[--radius-card] p-4 cursor-pointer transition-colors hover:opacity-90"
       style={{
-        background: n.read ? "#18181F" : "rgba(200,240,0,0.04)",
+        background: n.read ? "#242120" : "rgba(217,119,87,0.05)",
         border: n.read
-          ? "1px solid rgba(255,255,255,0.07)"
-          : "1px solid rgba(200,240,0,0.18)",
+          ? "1px solid rgba(255,228,210,0.08)"
+          : "1px solid rgba(217,119,87,0.2)",
         borderLeft: n.read
-          ? "1px solid rgba(255,255,255,0.07)"
-          : "3px solid #C8F000",
+          ? "1px solid rgba(255,228,210,0.08)"
+          : "3px solid #D97757",
       }}
     >
       {n.url ? (

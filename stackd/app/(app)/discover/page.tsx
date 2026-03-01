@@ -60,8 +60,8 @@ export default async function DiscoverPage() {
                   key={challenge.id}
                   className="rounded-[--radius-card] p-4 flex flex-col gap-3"
                   style={{
-                    background: "#18181F",
-                    border: "1px solid rgba(255,255,255,0.07)",
+                    background: "#242120",
+                    border: "1px solid rgba(255,228,210,0.08)",
                   }}
                 >
                   <div className="flex items-start gap-3">

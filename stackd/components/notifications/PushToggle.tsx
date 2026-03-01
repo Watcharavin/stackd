@@ -12,7 +12,7 @@ export function PushToggle() {
   return (
     <div
       className="flex items-center justify-between px-4 py-3 rounded-[--radius-card]"
-      style={{ background: "#18181F", border: "1px solid rgba(255,255,255,0.07)" }}
+      style={{ background: "#242120", border: "1px solid rgba(255,228,210,0.08)" }}
     >
       <div className="flex items-center gap-3">
         <span className="text-lg">{isSubscribed ? "🔔" : "🔕"}</span>
@@ -28,7 +28,7 @@ export function PushToggle() {
         onClick={isSubscribed ? unsubscribe : subscribe}
         disabled={loading}
         className="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors disabled:opacity-50 focus:outline-none"
-        style={{ background: isSubscribed ? "#C8F000" : "rgba(255,255,255,0.1)" }}
+        style={{ background: isSubscribed ? "#D97757" : "rgba(255,255,255,0.1)" }}
         aria-label={isSubscribed ? "Turn off push notifications" : "Turn on push notifications"}
       >
         <span

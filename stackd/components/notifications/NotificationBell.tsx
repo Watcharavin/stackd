@@ -71,7 +71,7 @@ export function NotificationBell() {
       {unread > 0 && (
         <span
           className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 rounded-full text-[9px] font-bold text-white flex items-center justify-center px-1 leading-none"
-          style={{ background: "#f97316" }}
+          style={{ background: "#D97757" }}
         >
           {unread > 99 ? "99+" : unread}
         </span>
