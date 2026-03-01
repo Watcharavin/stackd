@@ -48,7 +48,7 @@ export function NotificationBell() {
 
   return (
     <button
-      onClick={() => router.push("/notifications")}
+      onClick={() => { setUnread(0); router.push("/notifications"); }}
       title="Notifications"
       aria-label="Notifications"
       className="relative flex items-center justify-center size-8 rounded-full hover:bg-white/5 transition-colors"
