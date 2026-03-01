@@ -5,6 +5,7 @@ import { getUser, createServerSupabase } from "@/lib/supabase-server";
 import { Topbar } from "@/components/layout/Topbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { QuickLogButton } from "@/components/challenge/QuickLogButton";
 import { daysRemaining } from "@/lib/utils";
 import type { Database } from "@/lib/supabase";
 
@@ -34,18 +35,26 @@ export default async function DashboardPage() {
 
   const supabase = await createServerSupabase();
 
-  const [profileRes, membershipRes] = await Promise.all([
+  const today = new Date().toISOString().split("T")[0];
+
+  const [profileRes, membershipRes, todayLogsRes] = await Promise.all([
     supabase.from("users").select("username").eq("id", user.id).single(),
     supabase
       .from("challenge_members")
       .select("*, challenges(*)")
       .eq("user_id", user.id)
       .order("joined_at", { ascending: false }),
+    supabase
+      .from("logs")
+      .select("challenge_id")
+      .eq("user_id", user.id)
+      .eq("date", today),
   ]);
 
   const username = profileRes.data?.username ?? "friend";
   const memberships = (membershipRes.data ?? []) as unknown as MemberWithChallenge[];
   const active = memberships.filter((m) => m.challenges?.status === "active");
+  const loggedTodaySet = new Set((todayLogsRes.data ?? []).map((l) => l.challenge_id));
 
   const totalLogged = active.reduce((acc, m) => acc + m.logged_days, 0);
   const bestStreak = active.length > 0 ? Math.max(...active.map((m) => m.streak_days)) : 0;
@@ -108,13 +117,18 @@ export default async function DashboardPage() {
           {active.length === 0 ? (
             <div className="flex flex-col items-center justify-center rounded-[--radius-card] border border-dashed border-border py-16 text-center">
               <p className="mb-3 text-5xl">🎯</p>
-              <p className="font-heading font-semibold text-text">No challenges yet</p>
+              <p className="font-heading font-semibold text-text">No active challenges</p>
               <p className="mt-1 mb-5 text-sm text-muted">
-                Create one and invite friends to compete.
+                Create your own or join a public one.
               </p>
-              <Link href="/challenges/new">
-                <Button>Start a challenge</Button>
-              </Link>
+              <div className="flex gap-2">
+                <Link href="/challenges/new">
+                  <Button>+ Create</Button>
+                </Link>
+                <Link href="/discover">
+                  <Button variant="secondary">🧭 Discover</Button>
+                </Link>
+              </div>
             </div>
           ) : (
             <div className="space-y-3">
@@ -170,20 +184,29 @@ export default async function DashboardPage() {
                         </div>
                       </div>
 
-                      {/* Streak */}
-                      {m.streak_days > 0 && (
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-sm">🔥</span>
-                          <span className="text-xs font-medium text-text">
-                            {m.streak_days}-day streak
-                          </span>
-                          {m.streak_days >= 7 && (
-                            <span className="rounded-full border border-yellow/25 bg-yellow/10 px-2 py-0.5 text-[10px] font-medium text-yellow">
-                              on fire
+                      {/* Bottom row: streak + quick log */}
+                      <div className="flex items-center justify-between">
+                        {m.streak_days > 0 ? (
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-sm">🔥</span>
+                            <span className="text-xs font-medium text-text">
+                              {m.streak_days}-day streak
                             </span>
-                          )}
-                        </div>
-                      )}
+                            {m.streak_days >= 7 && (
+                              <span className="rounded-full border border-yellow/25 bg-yellow/10 px-2 py-0.5 text-[10px] font-medium text-yellow">
+                                on fire
+                              </span>
+                            )}
+                          </div>
+                        ) : (
+                          <div />
+                        )}
+                        <QuickLogButton
+                          challengeId={c.id}
+                          userId={user.id}
+                          loggedToday={loggedTodaySet.has(c.id)}
+                        />
+                      </div>
                     </div>
                   </Link>
                 );

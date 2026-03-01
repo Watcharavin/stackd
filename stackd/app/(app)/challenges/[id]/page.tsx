@@ -12,6 +12,7 @@ import { InviteButton } from "@/components/challenge/InviteButton";
 import { TrashTalk } from "@/components/challenge/TrashTalk";
 import { DeleteChallengeButton } from "@/components/challenge/DeleteChallengeButton";
 import { LeaveChallengeButton } from "@/components/challenge/LeaveChallengeButton";
+import { ChallengeTabs } from "@/components/challenge/ChallengeTabs";
 import { formatDate, daysRemaining } from "@/lib/utils";
 import type { ChallengeRow, MemberRow } from "@/lib/supabase";
 
@@ -117,35 +118,30 @@ export default async function ChallengePage({ params }: Props) {
           )}
         </Card>
 
-        {/* Log button (members only) */}
-        {isMember && challenge.status === "active" && (
-          <LogButton
-            challengeId={id}
-            userId={user.id}
-            loggedToday={loggedToday}
-          />
-        )}
-
-        {/* Invite */}
-        {isMember && (
-          <InviteButton challengeId={id} />
-        )}
-
-        {/* Leave (members who aren't creators) */}
-        {isMember && !isCreator && (
-          <LeaveChallengeButton challengeId={id} />
-        )}
-
-        {/* Leaderboard */}
-        <div>
-          <h3 className="font-heading font-semibold text-text mb-3">Leaderboard</h3>
-          <Leaderboard challengeId={id} currentUserId={user.id} />
-        </div>
-
-        {/* Trash Talk — members only */}
-        {isMember && (
-          <TrashTalk challengeId={id} currentUserId={user.id} />
-        )}
+        <ChallengeTabs
+          overview={
+            <div className="space-y-5">
+              {isMember && challenge.status === "active" && (
+                <LogButton
+                  challengeId={id}
+                  userId={user.id}
+                  loggedToday={loggedToday}
+                />
+              )}
+              {isMember && <InviteButton challengeId={id} />}
+              {isMember && !isCreator && <LeaveChallengeButton challengeId={id} />}
+              <div>
+                <h3 className="font-heading font-semibold text-text mb-3">Leaderboard</h3>
+                <Leaderboard challengeId={id} currentUserId={user.id} />
+              </div>
+            </div>
+          }
+          chat={
+            isMember
+              ? <TrashTalk challengeId={id} currentUserId={user.id} />
+              : <p className="text-sm text-muted text-center py-10">Join this challenge to chat.</p>
+          }
+        />
 
       </div>
     </div>
