@@ -6,6 +6,7 @@ import { Topbar } from "@/components/layout/Topbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { QuickLogButton } from "@/components/challenge/QuickLogButton";
+import { FlameIcon, ZapIcon } from "@/components/ui/icons";
 import { daysRemaining } from "@/lib/utils";
 import type { Database } from "@/lib/supabase";
 import type { UserRow } from "@/lib/supabase";
@@ -71,9 +72,7 @@ export default async function DashboardPage() {
         {/* ── Hero / Greeting ─────────────────────────────────── */}
         <div className="relative overflow-hidden rounded-[--radius-card] border border-lime/15 bg-gradient-to-br from-lime/[0.08] via-transparent to-transparent p-5">
           {/* decorative */}
-          <span className="pointer-events-none select-none absolute -right-3 -top-3 text-[7rem] opacity-[0.06] leading-none">
-            ⚡
-          </span>
+          <ZapIcon className="pointer-events-none select-none absolute -right-3 -top-3 size-28 opacity-[0.06]" strokeWidth={1} />
 
           <p className="text-sm text-muted">{getGreeting()}</p>
           <h1 className="mt-0.5 font-heading text-2xl font-bold text-text">
@@ -93,8 +92,8 @@ export default async function DashboardPage() {
               </div>
               <div className="w-px bg-border" />
               <div>
-                <p className="font-heading text-xl font-bold text-yellow">
-                  {bestStreak > 0 ? `🔥 ${bestStreak}` : "—"}
+                <p className="font-heading text-xl font-bold text-yellow flex items-center gap-1">
+                  {bestStreak > 0 ? <><FlameIcon className="size-5" />{bestStreak}</> : "—"}
                 </p>
                 <p className="text-xs text-muted">Best streak</p>
               </div>
@@ -191,7 +190,7 @@ export default async function DashboardPage() {
                       <div className="flex items-center justify-between">
                         {m.streak_days > 0 ? (
                           <div className="flex items-center gap-1.5">
-                            <span className="text-sm">🔥</span>
+                            <FlameIcon className="size-3.5 text-yellow" />
                             <span className="text-xs font-medium text-text">
                               {m.streak_days}-day streak
                             </span>
@@ -227,7 +226,7 @@ export default async function DashboardPage() {
               border: "1px solid rgba(217,119,87,0.15)",
             }}
           >
-            <span className="text-2xl shrink-0">⚡</span>
+            <ZapIcon className="size-5 shrink-0 text-lime" />
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-text">Go Pro</p>
               <p className="text-xs text-muted mt-0.5">

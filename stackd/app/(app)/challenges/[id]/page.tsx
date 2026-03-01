@@ -14,6 +14,7 @@ import { DeleteChallengeButton } from "@/components/challenge/DeleteChallengeBut
 import { LeaveChallengeButton } from "@/components/challenge/LeaveChallengeButton";
 import { ChallengeTabs } from "@/components/challenge/ChallengeTabs";
 import { formatDate, daysRemaining } from "@/lib/utils";
+import { PencilIcon, TrophyIcon, SkullIcon, ClockIcon, CalendarIcon } from "@/components/ui/icons";
 import type { ChallengeRow, MemberRow } from "@/lib/supabase";
 
 interface Props {
@@ -83,8 +84,8 @@ export default async function ChallengePage({ params }: Props) {
             <Badge variant={challenge.status === "active" ? "green" : "muted"}>
               {challenge.status}
             </Badge>
-            <Badge variant="default">⏰ {days}d left</Badge>
-            <Badge variant="default">📅 Ends {formatDate(challenge.end_date)}</Badge>
+            <Badge variant="default"><ClockIcon className="size-3" /> {days}d left</Badge>
+            <Badge variant="default"><CalendarIcon className="size-3" /> Ends {formatDate(challenge.end_date)}</Badge>
           </div>
 
           {/* Stakes */}
@@ -93,13 +94,13 @@ export default async function ChallengePage({ params }: Props) {
               {challenge.reward && (
                 <div className="bg-green/10 border border-green/20 rounded-[--radius-input] p-3">
                   <p className="text-xs text-muted mb-0.5">Winner gets</p>
-                  <p className="text-sm font-medium text-green">🏆 {challenge.reward}</p>
+                  <p className="text-sm font-medium text-green flex items-center gap-1.5"><TrophyIcon className="size-3.5 shrink-0" /> {challenge.reward}</p>
                 </div>
               )}
               {challenge.punishment && (
                 <div className="bg-red/10 border border-red/20 rounded-[--radius-input] p-3">
                   <p className="text-xs text-muted mb-0.5">Quitters get</p>
-                  <p className="text-sm font-medium text-red">💀 {challenge.punishment}</p>
+                  <p className="text-sm font-medium text-red flex items-center gap-1.5"><SkullIcon className="size-3.5 shrink-0" /> {challenge.punishment}</p>
                 </div>
               )}
             </div>
@@ -110,7 +111,7 @@ export default async function ChallengePage({ params }: Props) {
             <div className="flex gap-2 mt-4 pt-4 border-t border-border">
               <Link href={`/challenges/${id}/edit`} className="flex-1">
                 <Button variant="secondary" size="sm" className="w-full">
-                  ✏️ Edit
+                  <PencilIcon /> Edit
                 </Button>
               </Link>
               <DeleteChallengeButton challengeId={id} />

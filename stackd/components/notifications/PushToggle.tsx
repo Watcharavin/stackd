@@ -2,6 +2,7 @@
 "use client";
 
 import { usePushNotifications } from "@/hooks/usePushNotifications";
+import { BellIcon, BellOffIcon } from "@/components/ui/icons";
 
 export function PushToggle() {
   const { isSupported, isSubscribed, subscribe, unsubscribe, loading } =
@@ -15,11 +16,16 @@ export function PushToggle() {
       style={{ background: "#242120", border: "1px solid rgba(255,228,210,0.08)" }}
     >
       <div className="flex items-center gap-3">
-        <span className="text-lg">{isSubscribed ? "🔔" : "🔕"}</span>
+        <div className="size-8 rounded-full bg-surface-2 flex items-center justify-center text-muted">
+          {isSubscribed
+            ? <BellIcon className="size-4" />
+            : <BellOffIcon className="size-4" />
+          }
+        </div>
         <div>
           <p className="text-sm font-medium text-text">Push notifications</p>
           <p className="text-xs text-muted">
-            {isSubscribed ? "เปิดอยู่ — รับแจ้งเตือนบนอุปกรณ์นี้" : "ปิดอยู่ — ไม่รับแจ้งเตือน"}
+            {isSubscribed ? "On — receiving alerts on this device" : "Off — not receiving alerts"}
           </p>
         </div>
       </div>

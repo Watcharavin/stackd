@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { LinkIcon, CheckIcon } from "@/components/ui/icons";
 
 interface InviteButtonProps {
   challengeId: string;
@@ -25,7 +26,17 @@ export function InviteButton({ challengeId }: InviteButtonProps) {
       className="w-full"
       onClick={handleCopy}
     >
-      {copied ? "✅ Link copied!" : "🔗 Copy invite link"}
+      {copied ? (
+        <>
+          <CheckIcon strokeWidth={2.5} />
+          Link copied!
+        </>
+      ) : (
+        <>
+          <LinkIcon />
+          Copy invite link
+        </>
+      )}
     </Button>
   );
 }

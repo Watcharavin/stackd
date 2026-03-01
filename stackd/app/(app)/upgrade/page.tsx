@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getUser, createServerSupabase } from "@/lib/supabase-server";
 import { Topbar } from "@/components/layout/Topbar";
 import { Card } from "@/components/ui/card";
+import { ZapIcon, CheckIcon } from "@/components/ui/icons";
 import { UpgradeButton } from "./UpgradeButton";
 
 const FREE_FEATURES = [
@@ -43,7 +44,9 @@ export default async function UpgradePage() {
       <div className="max-w-lg mx-auto px-4 py-8 space-y-6">
 
         <div className="text-center space-y-2">
-          <p className="text-4xl">⚡</p>
+          <div className="size-12 rounded-2xl bg-lime/10 border border-lime/20 flex items-center justify-center mx-auto">
+            <ZapIcon className="size-6 text-lime" />
+          </div>
           <h1 className="font-heading text-2xl font-bold text-text">Go Pro. No excuses.</h1>
           <p className="text-muted text-sm">Unlock unlimited challenges and members.</p>
         </div>
@@ -79,7 +82,7 @@ export default async function UpgradePage() {
             <ul className="space-y-2">
               {PRO_FEATURES.map((f) => (
                 <li key={f} className="flex items-start gap-2 text-xs text-text">
-                  <span className="text-lime mt-0.5 shrink-0">✓</span> {f}
+                  <CheckIcon className="size-3.5 text-lime mt-0.5 shrink-0" strokeWidth={2.5} /> {f}
                 </li>
               ))}
             </ul>

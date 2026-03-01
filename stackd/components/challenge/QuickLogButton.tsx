@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase";
+import { CheckIcon } from "@/components/ui/icons";
 
 interface Props {
   challengeId: string;
@@ -17,7 +18,8 @@ export function QuickLogButton({ challengeId, userId, loggedToday }: Props) {
   if (done) {
     return (
       <span className="text-xs font-medium text-green flex items-center gap-1">
-        ✅ Logged
+        <CheckIcon className="size-3.5" strokeWidth={2.5} />
+        Logged
       </span>
     );
   }

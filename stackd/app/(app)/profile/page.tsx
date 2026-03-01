@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { ProBadge } from "@/components/subscription/ProBadge";
 import { ManageSubscriptionButton } from "@/components/subscription/ManageSubscriptionButton";
 import { formatDate } from "@/lib/utils";
+import { CheckIcon, FlameIcon, ZapIcon } from "@/components/ui/icons";
 import type { UserRow } from "@/lib/supabase";
 
 export default async function ProfilePage() {
@@ -80,12 +81,15 @@ export default async function ProfilePage() {
           {/* inline stats */}
           <div className="flex justify-center gap-6 mt-4 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             {[
-              { label: "Days logged", value: totalLogged, icon: "✅" },
-              { label: "Best streak", value: `${bestStreak}d`, icon: "🔥" },
-              { label: "Active",      value: activeChallenges, icon: "⚡" },
-            ].map(({ label, value, icon }) => (
+              { label: "Days logged", value: totalLogged,       Icon: CheckIcon,  color: "text-green" },
+              { label: "Best streak", value: `${bestStreak}d`,  Icon: FlameIcon,  color: "text-yellow" },
+              { label: "Active",      value: activeChallenges,  Icon: ZapIcon,    color: "text-lime" },
+            ].map(({ label, value, Icon, color }) => (
               <div key={label} className="text-center">
-                <p className="font-heading text-lg font-bold text-text">{icon} {value}</p>
+                <p className={`font-heading text-lg font-bold text-text flex items-center justify-center gap-1 ${color}`}>
+                  <Icon className="size-4" />
+                  <span className="text-text">{value}</span>
+                </p>
                 <p className="text-[11px] text-muted mt-0.5">{label}</p>
               </div>
             ))}

@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { LogOutIcon } from "@/components/ui/icons";
 
 interface Props {
   challengeId: string;
@@ -61,9 +62,10 @@ export function LeaveChallengeButton({ challengeId }: Props) {
   return (
     <button
       onClick={() => setConfirm(true)}
-      className="h-9 px-4 rounded-[--radius-btn] text-sm font-medium text-red border border-red/20 hover:bg-red/10 transition-colors"
+      className="h-9 px-4 rounded-[--radius-btn] text-sm font-medium text-red border border-red/20 hover:bg-red/10 transition-colors flex items-center gap-2"
     >
-      🚪 Leave
+      <LogOutIcon />
+      Leave
     </button>
   );
 }

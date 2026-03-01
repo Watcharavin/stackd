@@ -6,6 +6,7 @@ import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { InviteButton } from "@/components/challenge/InviteButton";
+import { FlameIcon, CheckIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 
 const RANK_MEDALS = ["🥇", "🥈", "🥉"];
@@ -60,15 +61,23 @@ export function Leaderboard({ challengeId, currentUserId }: LeaderboardProps) {
                 username={entry.user.username}
                 size="sm"
               />
-            <div className="flex-1 min-w-0">
-              <p className={cn("text-sm font-medium truncate", isMe ? "text-lime" : "text-text")}>
-                {entry.user.username}
-                {isMe && <span className="text-muted font-normal"> (you)</span>}
-              </p>
-              <p className="text-xs text-muted">
-                🔥 {entry.streak_days} streak · ✅ {entry.logged_days} days
-              </p>
-            </div>
+              <div className="flex-1 min-w-0">
+                <p className={cn("text-sm font-medium truncate", isMe ? "text-lime" : "text-text")}>
+                  {entry.user.username}
+                  {isMe && <span className="text-muted font-normal"> (you)</span>}
+                </p>
+                <div className="flex items-center gap-2 mt-0.5 text-xs text-muted">
+                  <span className="flex items-center gap-1">
+                    <FlameIcon className="size-3" />
+                    {entry.streak_days}
+                  </span>
+                  <span className="text-border">·</span>
+                  <span className="flex items-center gap-1">
+                    <CheckIcon className="size-3" strokeWidth={2.5} />
+                    {entry.logged_days} days
+                  </span>
+                </div>
+              </div>
             </Link>
 
             {/* Status */}

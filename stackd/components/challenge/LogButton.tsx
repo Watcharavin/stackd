@@ -3,6 +3,7 @@
 
 import { useRef, useState } from "react";
 import { createClient } from "@/lib/supabase";
+import { CameraIcon, CheckIcon, XIcon } from "@/components/ui/icons";
 
 interface LogButtonProps {
   challengeId: string;
@@ -29,7 +30,8 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
   if (loggedToday) {
     return (
       <div className="w-full h-16 bg-green/10 border-2 border-green/30 rounded-[--radius-card] flex items-center justify-center gap-2 text-green font-heading font-bold text-lg">
-        ✅ Logged today!
+        <CheckIcon className="size-6" strokeWidth={2.5} />
+        Logged today!
       </div>
     );
   }
@@ -123,7 +125,7 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
         .maybeSingle();
 
       if (dup) {
-        setError("❌ You already used this photo in this challenge");
+        setError("You already used this photo in this challenge");
         setLoading(false);
         return;
       }
@@ -184,7 +186,12 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
           >
             {loading ? (
               <span className="size-5 rounded-full border-2 border-current border-t-transparent animate-spin" />
-            ) : "📷 Log today — add proof"}
+            ) : (
+              <>
+                <CameraIcon className="size-5" strokeWidth={1.5} />
+                Log today — add proof
+              </>
+            )}
           </button>
           <button
             onClick={handleLogNoPhoto}
@@ -205,9 +212,9 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
             />
             <button
               onClick={handleRemove}
-              className="absolute top-2 right-2 size-7 bg-bg/80 backdrop-blur rounded-full flex items-center justify-center text-muted hover:text-text transition-colors text-sm"
+              className="absolute top-2 right-2 size-7 bg-bg/80 backdrop-blur rounded-full flex items-center justify-center text-muted hover:text-text transition-colors"
             >
-              ✕
+              <XIcon className="size-3.5" />
             </button>
           </div>
 
@@ -219,7 +226,10 @@ export function LogButton({ challengeId, userId, loggedToday }: LogButtonProps) 
             {loading ? (
               <span className="size-5 rounded-full border-2 border-current border-t-transparent animate-spin" />
             ) : (
-              "✅ Confirm log"
+              <>
+                <CheckIcon className="size-5" strokeWidth={2.5} />
+                Confirm log
+              </>
             )}
           </button>
         </div>
