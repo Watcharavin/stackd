@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getUser } from "@/lib/supabase-server";
 import { supabaseAdmin } from "@/lib/webpush";
 import { Topbar } from "@/components/layout/Topbar";
+import { PushToggle } from "@/components/notifications/PushToggle";
 import { formatDate } from "@/lib/utils";
 
 export default async function NotificationsPage() {
@@ -31,7 +32,9 @@ export default async function NotificationsPage() {
     <div>
       <Topbar title="Notifications" backHref="/dashboard" />
 
-      <div className="max-w-lg mx-auto px-4 py-6">
+      <div className="max-w-lg mx-auto px-4 py-6 space-y-4">
+        <PushToggle />
+
         {!notifications || notifications.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center gap-3">
             <span className="text-4xl">🔔</span>
