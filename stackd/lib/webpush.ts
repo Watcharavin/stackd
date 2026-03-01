@@ -28,31 +28,42 @@ export async function sendPushToUser(userId: string, payload: PushPayload) {
     .select("*")
     .eq("user_id", userId);
 
-  if (!subs?.length) return;
-
-  await Promise.allSettled(
-    subs.map(async (sub) => {
-      try {
-        await webpush.sendNotification(
-          { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },
-          JSON.stringify({ ...payload, icon: payload.icon ?? "/icon-192.png" })
-        );
-      } catch (err: unknown) {
-        // Remove stale subscriptions
-        if (
-          err &&
-          typeof err === "object" &&
-          "statusCode" in err &&
-          (err as { statusCode: number }).statusCode === 410
-        ) {
-          await supabaseAdmin
-            .from("push_subscriptions")
-            .delete()
-            .eq("endpoint", sub.endpoint);
+  if (subs?.length) {
+    await Promise.allSettled(
+      subs.map(async (sub) => {
+        try {
+          await webpush.sendNotification(
+            { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },
+            JSON.stringify({ ...payload, icon: payload.icon ?? "/icon-192.png" })
+          );
+        } catch (err: unknown) {
+          // Remove stale subscriptions
+          if (
+            err &&
+            typeof err === "object" &&
+            "statusCode" in err &&
+            (err as { statusCode: number }).statusCode === 410
+          ) {
+            await supabaseAdmin
+              .from("push_subscriptions")
+              .delete()
+              .eq("endpoint", sub.endpoint);
+          }
         }
-      }
+      })
+    );
+  }
+
+  // Persist to notification inbox — fire-and-forget
+  supabaseAdmin
+    .from("notifications")
+    .insert({
+      user_id: userId,
+      title: payload.title,
+      body: payload.body,
+      url: payload.url ?? null,
     })
-  );
+    .then(() => {});
 }
 
 export async function sendPushToUsers(userIds: string[], payload: PushPayload) {

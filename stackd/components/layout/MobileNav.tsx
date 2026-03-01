@@ -27,6 +27,15 @@ function TrophyIcon({ active }: { active: boolean }) {
   );
 }
 
+function CompassIcon({ active }: { active: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth={active ? 2 : 1.5} stroke="currentColor" className="size-5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+    </svg>
+  );
+}
+
 function UserIcon({ active }: { active: boolean }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" strokeWidth={active ? 2 : 1.5} stroke="currentColor" className="size-5" strokeLinecap="round" strokeLinejoin="round">
@@ -39,6 +48,7 @@ function UserIcon({ active }: { active: boolean }) {
 const navItems = [
   { href: "/dashboard",   label: "Home",       Icon: HomeIcon },
   { href: "/challenges",  label: "Challenges", Icon: TrophyIcon },
+  { href: "/discover",    label: "Discover",   Icon: CompassIcon },
   { href: "/profile",     label: "Profile",    Icon: UserIcon },
 ];
 

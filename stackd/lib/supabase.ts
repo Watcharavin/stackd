@@ -167,6 +167,28 @@ export type Database = {
         Update: Record<string, never>;
         Relationships: [];
       };
+      notifications: {
+        Row: {
+          id: string;
+          user_id: string;
+          title: string;
+          body: string;
+          url: string | null;
+          read: boolean;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          title: string;
+          body: string;
+          url?: string | null;
+          read?: boolean;
+        };
+        Update: {
+          read?: boolean;
+        };
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: { [_ in never]: never };
@@ -182,6 +204,7 @@ export type UserRow = Database["public"]["Tables"]["users"]["Row"];
 export type LogRow = Database["public"]["Tables"]["logs"]["Row"];
 export type MessageRow = Database["public"]["Tables"]["messages"]["Row"];
 export type PushSubscriptionRow = Database["public"]["Tables"]["push_subscriptions"]["Row"];
+export type NotificationRow = Database["public"]["Tables"]["notifications"]["Row"];
 
 // ─── Browser Client (use in Client Components) ────────────────────────────────
 

@@ -11,6 +11,7 @@ import { LogButton } from "@/components/challenge/LogButton";
 import { InviteButton } from "@/components/challenge/InviteButton";
 import { TrashTalk } from "@/components/challenge/TrashTalk";
 import { DeleteChallengeButton } from "@/components/challenge/DeleteChallengeButton";
+import { LeaveChallengeButton } from "@/components/challenge/LeaveChallengeButton";
 import { formatDate, daysRemaining } from "@/lib/utils";
 import type { ChallengeRow, MemberRow } from "@/lib/supabase";
 
@@ -128,6 +129,11 @@ export default async function ChallengePage({ params }: Props) {
         {/* Invite */}
         {isMember && (
           <InviteButton challengeId={id} />
+        )}
+
+        {/* Leave (members who aren't creators) */}
+        {isMember && !isCreator && (
+          <LeaveChallengeButton challengeId={id} />
         )}
 
         {/* Leaderboard */}
