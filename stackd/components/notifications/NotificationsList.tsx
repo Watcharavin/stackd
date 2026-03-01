@@ -6,6 +6,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase";
 import { formatDate } from "@/lib/utils";
 import type { NotificationRow } from "@/lib/supabase";
+// Note: mark-as-read uses /api/notifications/read (supabaseAdmin) to bypass RLS
 
 interface Props {
   initial: NotificationRow[];
@@ -51,15 +52,10 @@ export function NotificationsList({ initial, userId }: Props) {
   useEffect(() => {
     const supabase = createClient();
 
-    // Mark all as read
-    supabase
-      .from("notifications")
-      .update({ read: true })
-      .eq("user_id", userId)
-      .eq("read", false)
-      .then(() => {
-        setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-      });
+    // Mark all existing unread as read via API (supabaseAdmin bypasses RLS)
+    fetch("/api/notifications/read", { method: "POST" }).then(() => {
+      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+    });
 
     // Realtime — prepend new notifications as they arrive
     const channel = supabase
@@ -69,18 +65,9 @@ export function NotificationsList({ initial, userId }: Props) {
         { event: "INSERT", schema: "public", table: "notifications" },
         (payload) => {
           const newNotif = payload.new as NotificationRow;
-          setNotifications((prev) => [newNotif, ...prev]);
-
-          // Mark the new one as read immediately (user is on this page)
-          supabase
-            .from("notifications")
-            .update({ read: true })
-            .eq("id", newNotif.id)
-            .then(() => {
-              setNotifications((prev) =>
-                prev.map((n) => (n.id === newNotif.id ? { ...n, read: true } : n))
-              );
-            });
+          // Prepend and mark read immediately (user is already on this page)
+          setNotifications((prev) => [{ ...newNotif, read: true }, ...prev]);
+          fetch("/api/notifications/read", { method: "POST" });
         }
       )
       .subscribe();
