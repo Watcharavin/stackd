@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { BarChart2Icon, MessageSquareIcon } from "@/components/ui/icons";
 
 interface Props {
   overview: React.ReactNode;
@@ -24,13 +25,16 @@ export function ChallengeTabs({ overview, chat }: Props) {
             key={t}
             onClick={() => setTab(t)}
             className={cn(
-              "flex-1 h-9 rounded-full text-sm font-medium transition-all duration-200",
+              "flex-1 h-9 rounded-full text-sm font-medium transition-all duration-200 flex items-center justify-center gap-1.5",
               tab === t
                 ? "bg-lime text-bg shadow-sm"
                 : "text-muted hover:text-text"
             )}
           >
-            {t === "overview" ? "📊 Overview" : "💬 Chat"}
+            {t === "overview"
+              ? <><BarChart2Icon className="size-3.5" /> Overview</>
+              : <><MessageSquareIcon className="size-3.5" /> Chat</>
+            }
           </button>
         ))}
       </div>

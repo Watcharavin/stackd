@@ -72,7 +72,7 @@ export default async function ChallengePage({ params }: Props) {
         {/* Challenge header */}
         <Card>
           <div className="flex items-start gap-3">
-            <span className="text-4xl">{challenge.emoji}</span>
+            <span className="text-3xl leading-none">{challenge.emoji}</span>
             <div className="flex-1 min-w-0">
               <h2 className="font-heading text-xl font-bold text-text">{challenge.name}</h2>
               <p className="text-sm text-muted mt-0.5">{challenge.goal}</p>
@@ -90,7 +90,7 @@ export default async function ChallengePage({ params }: Props) {
 
           {/* Stakes */}
           {(challenge.reward || challenge.punishment) && (
-            <div className="mt-4 grid grid-cols-2 gap-2">
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
               {challenge.reward && (
                 <div className="bg-green/10 border border-green/20 rounded-[--radius-input] p-3">
                   <p className="text-xs text-muted mb-0.5">Winner gets</p>

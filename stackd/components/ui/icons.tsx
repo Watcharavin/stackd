@@ -124,10 +124,28 @@ export function TrophyIcon({ className, strokeWidth = 1.5 }: IconProps) {
 export function SkullIcon({ className, strokeWidth = 1.5 }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={cn("size-4", className)}>
-      <path d="M12 3a6.5 6.5 0 00-6.5 6.5c0 2.5 1.35 4.7 3.37 5.9.37.22.63.6.63 1.03V18h5v-1.57c0-.43.26-.81.63-1.03A6.5 6.5 0 0018.5 9.5 6.5 6.5 0 0012 3z" />
-      <path d="M10 18v3M14 18v3M10 21h4" />
-      <circle cx="10" cy="10" r="1" fill="currentColor" stroke="none" />
-      <circle cx="14" cy="10" r="1" fill="currentColor" stroke="none" />
+      <path d="M9 21h6M10 21v-1M14 21v-1M12 3A8 8 0 004 11c0 3.2 1.8 5.9 4.5 7.2.3.2.5.5.5.8V20h6v-1c0-.3.2-.6.5-.8C18.2 16.9 20 14.2 20 11A8 8 0 0012 3z" />
+      <circle cx="9" cy="11" r="1.5" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="11" r="1.5" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function BarChart2Icon({ className, strokeWidth = 1.5 }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={cn("size-4", className)}>
+      <line x1="18" y1="20" x2="18" y2="10" />
+      <line x1="12" y1="20" x2="12" y2="4" />
+      <line x1="6" y1="20" x2="6" y2="14" />
+      <line x1="2" y1="20" x2="22" y2="20" />
+    </svg>
+  );
+}
+
+export function MessageSquareIcon({ className, strokeWidth = 1.5 }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={cn("size-4", className)}>
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
     </svg>
   );
 }
