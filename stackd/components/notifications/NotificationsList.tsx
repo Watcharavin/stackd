@@ -6,14 +6,23 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase";
 import { formatDate } from "@/lib/utils";
 import type { NotificationRow } from "@/lib/supabase";
-// Note: mark-as-read uses /api/notifications/read (supabaseAdmin) to bypass RLS
 
 interface Props {
   initial: NotificationRow[];
   userId: string;
 }
 
-function NotificationItem({ n }: { n: NotificationRow }) {
+function NotificationItem({
+  n,
+  onRead,
+}: {
+  n: NotificationRow;
+  onRead: (id: string) => void;
+}) {
+  function handleClick() {
+    if (!n.read) onRead(n.id);
+  }
+
   const inner = (
     <>
       <p className="font-medium text-text text-sm">{n.title}</p>
@@ -24,7 +33,8 @@ function NotificationItem({ n }: { n: NotificationRow }) {
 
   return (
     <div
-      className="rounded-[--radius-card] p-4"
+      onClick={handleClick}
+      className="rounded-[--radius-card] p-4 cursor-pointer transition-colors hover:opacity-90"
       style={{
         background: n.read ? "#18181F" : "rgba(200,240,0,0.04)",
         border: n.read
@@ -36,7 +46,7 @@ function NotificationItem({ n }: { n: NotificationRow }) {
       }}
     >
       {n.url ? (
-        <Link href={n.url} className="block hover:opacity-80 transition-opacity">
+        <Link href={n.url} className="block">
           {inner}
         </Link>
       ) : (
@@ -52,12 +62,6 @@ export function NotificationsList({ initial, userId }: Props) {
   useEffect(() => {
     const supabase = createClient();
 
-    // Mark all as read in DB — keep green borders visible for 2s so user sees what's new
-    fetch("/api/notifications/read", { method: "POST" });
-    const timer = setTimeout(() => {
-      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-    }, 2000);
-
     // Realtime — prepend new notifications as they arrive
     const channel = supabase
       .channel("notifications-list")
@@ -65,19 +69,26 @@ export function NotificationsList({ initial, userId }: Props) {
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "notifications" },
         (payload) => {
-          const newNotif = payload.new as NotificationRow;
-          // Prepend and mark read immediately (user is already on this page)
-          setNotifications((prev) => [{ ...newNotif, read: true }, ...prev]);
-          fetch("/api/notifications/read", { method: "POST" });
+          setNotifications((prev) => [payload.new as NotificationRow, ...prev]);
         }
       )
       .subscribe();
 
-    return () => {
-      clearTimeout(timer);
-      supabase.removeChannel(channel);
-    };
+    return () => { supabase.removeChannel(channel); };
   }, [userId]);
+
+  async function handleRead(id: string) {
+    // Update visual immediately
+    setNotifications((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, read: true } : n))
+    );
+    // Persist to DB
+    fetch("/api/notifications/read", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+  }
 
   if (notifications.length === 0) {
     return (
@@ -91,7 +102,7 @@ export function NotificationsList({ initial, userId }: Props) {
   return (
     <div className="space-y-2">
       {notifications.map((n) => (
-        <NotificationItem key={n.id} n={n} />
+        <NotificationItem key={n.id} n={n} onRead={handleRead} />
       ))}
     </div>
   );
